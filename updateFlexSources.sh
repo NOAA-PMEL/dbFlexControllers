@@ -6,11 +6,11 @@ open "smb://pesto/Projects/OCS/Inventory"
 sleep 5
 echo "Copying file..."
 cp /Volumes/Inventory/OCSInstrumentInventory_JK.xlsx /Users/white/Repos/Dev/TAO.SVN/daw.flex-sim.proj/
-cp /Volumes/Inventory/OCSInstrumentInventory_JK.xlsx /Users/white/Repos/Dev/cbFlexControllers/
+cp /Volumes/Inventory/OCSInstrumentInventory_JK.xlsx /Users/white/Repos/Dev/dbFlexControllers/
 echo "Unmounting..."
 umount /Volumes/Inventory
 echo "Taking a breath..."
-sleep 10
+sleep 2
 echo "Updating GTMBA TFlex file"
 open "smb://pesto/OCRD/zimmerman"
 sleep 5

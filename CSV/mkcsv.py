@@ -172,8 +172,19 @@ def make_ocs_csv(wb):
   ## def make_ocs_csv
 
 def make_ocs_inv(wb):
-  for sht in wb.worksheets:
-    print('{}: {}\n'.format(wb.name,sht))
+  active = 'In Service'
+  retire = 'Retired'
+  with open('OCSInventory.csv', 'wb') as fobj:
+    csvobj = csv.writer(fobj)
+    for i,row in enumerate(wb[active].iter_rows(min_row=2),2):
+      if re.match(r"(Face Plate|FLEX\s.+)", row[0].value) is not None:
+        csv_row = [(((c.value is not None) and str(c.value).strip()) or str()) for c in row]
+        try:
+          print('Found one: {}'.format(i))
+          csvobj.writerow(csv_row)
+        except UnicodeEncodeError as uee:
+          raise CharacterError(active, i, uee, csv_row)
+  ## def make_ocs_inv
 
 def make_stratos_csv(wb):
   sht_name = 'Mobile Info & Summary'
@@ -221,7 +232,7 @@ def main(args):
         make_status_csv(wb)
       elif 'Mobile Info & Summary' in wb.sheetnames:
         make_stratos_csv(wb)
-      elif 'In Service' in wb.sheetnames:
+      elif set(['In Service','Retired']).issubset(wb.sheetnames):
         make_ocs_inv(wb)
       else:
         raise FileError(xlsxfile)

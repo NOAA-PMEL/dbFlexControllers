@@ -128,6 +128,37 @@ def make_iridium_csv(wb):
         raise CharacterError(sht_name, N, uee, csv_row)
   ## def make_iridium_csv
 
+def make_current_hist(wb):
+  sht = 'CurrentDrainTests'
+  for i,row in enumerate(wb[sht].iter_rows(min_row=8)):
+    if row[0] is not None:
+      for c in row:
+        if c.value is not None:
+          if c.fill.fgColor.rgb == 'FF00B050':
+            print('OceanServer',c.coordinate)
+          elif c.fill.fgColor.rgb == 'FF00B0F0':
+            print('Repair',c.coordinate)
+          # print(c.value,c.fill.fgColor.rgb)
+  # with open('OCSInventory.csv', 'wb') as fobj:
+  #   csvobj = csv.writer(fobj)
+  #   for i,row in enumerate(wb[sht].iter_rows(min_row=2),2):
+  #     if re.match(r"(Face Plate|FLEX\s.+)", row[0].value) is not None:
+  #       sys.stdout.write('[{}: {}]\n'.format(sht, i))
+  #       csv_row = []
+  #       for c in row:
+  #         if c.value is None:
+  #           csv_row.append(str())
+  #         elif type(c.value) is long:
+  #           csv_row.append(str(c.value))
+  #         elif re.search('\n',c.value) is not None:
+  #           csv_row.append(c.value.replace("\n"," "))
+  #         else:
+  #           csv_row.append(c.value)
+  #       try:
+  #         csvobj.writerow(csv_row)
+  #       except UnicodeEncodeError as uee:
+  #         raise CharacterError(active, i, uee, csv_row)
+
 def make_status_csv(wb):
   sht_name = 'STATUS'
   sht = wb[sht_name]
@@ -178,9 +209,35 @@ def make_ocs_inv(wb):
     csvobj = csv.writer(fobj)
     for i,row in enumerate(wb[active].iter_rows(min_row=2),2):
       if re.match(r"(Face Plate|FLEX\s.+)", row[0].value) is not None:
-        csv_row = [(((c.value is not None) and str(c.value).strip()) or str()) for c in row]
+        sys.stdout.write('Match: [{}: {}]\n'.format(active, i))
+        csv_row = []
+        for c in row:
+          if c.value is None:
+            csv_row.append(str())
+          elif type(c.value) is long:
+            csv_row.append(str(c.value))
+          elif re.search('\n',c.value) is not None:
+            csv_row.append(c.value.replace("\n"," "))
+          else:
+            csv_row.append(c.value)
         try:
-          print('Found one: {}'.format(i))
+          csvobj.writerow(csv_row)
+        except UnicodeEncodeError as uee:
+          raise CharacterError(active, i, uee, csv_row)
+    for i,row in enumerate(wb[retire].iter_rows(min_row=2),2):
+      if re.match(r"(Face Plate|FLEX\s.+)", row[0].value) is not None:
+        sys.stdout.write('Match: [{}: {}]\n'.format(retire, i))
+        csv_row = []
+        for c in row:
+          if c.value is None:
+            csv_row.append(str())
+          elif type(c.value) is long:
+            csv_row.append(str(c.value))
+          elif re.search('\n',c.value) is not None:
+            csv_row.append(c.value.replace("\n"," "))
+          else:
+            csv_row.append(c.value)
+        try:
           csvobj.writerow(csv_row)
         except UnicodeEncodeError as uee:
           raise CharacterError(active, i, uee, csv_row)
@@ -228,6 +285,7 @@ def main(args):
         make_ocs_csv(wb)
       elif set(['IridiumInfo','STATUS']).issubset(wb.sheetnames):
         make_history_csv(wb)
+        make_current_hist(wb)
         make_iridium_csv(wb)
         make_status_csv(wb)
       elif 'Mobile Info & Summary' in wb.sheetnames:

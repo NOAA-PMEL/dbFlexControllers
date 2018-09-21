@@ -2,6 +2,8 @@ import sys
 import re
 import csv
 import warnings
+import tao.db
+from tao.util import unwrap as uw
 from pprint import pformat
 from datetime import datetime, time
 from openpyxl import load_workbook
@@ -175,6 +177,19 @@ def make_status_csv(wb):
         raise CharacterError(sht_name, N, uee, csv_row)
       N += 1
   ## def make_status_csv
+
+def fetch_ocs_info():
+  dbc = tao.db.MySQL().user()
+  crs = dbc.cursor()
+  sql = r"""
+    SELECT SUBSTR(`sn`,6), MIN(dt) FROM `Flex`.`FlexHist`
+    WHERE `sn` LIKE '%FLEX%' GROUP BY `sn`
+    """
+  n = crs.execute(refmt(sql))
+  d = crs.fetchall()
+  dbc.close()
+  return [[None, r[0], str(r[1].date()), 'Randy Bott'] for r in d]
+  ## def fetch_info_data
 
 def make_ocs_csv(wb):
   sht_name = 'OCS'

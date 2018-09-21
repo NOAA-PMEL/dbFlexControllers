@@ -130,34 +130,28 @@ def make_iridium_csv(wb):
 
 def make_current_hist(wb):
   sht = 'CurrentDrainTests'
-  for i,row in enumerate(wb[sht].iter_rows(min_row=8)):
-    if row[0] is not None:
-      for c in row:
-        if c.value is not None:
-          if c.fill.fgColor.rgb == 'FF00B050':
-            print('OceanServer',c.coordinate)
-          elif c.fill.fgColor.rgb == 'FF00B0F0':
-            print('Repair',c.coordinate)
-          # print(c.value,c.fill.fgColor.rgb)
-  # with open('OCSInventory.csv', 'wb') as fobj:
-  #   csvobj = csv.writer(fobj)
-  #   for i,row in enumerate(wb[sht].iter_rows(min_row=2),2):
-  #     if re.match(r"(Face Plate|FLEX\s.+)", row[0].value) is not None:
-  #       sys.stdout.write('[{}: {}]\n'.format(sht, i))
-  #       csv_row = []
-  #       for c in row:
-  #         if c.value is None:
-  #           csv_row.append(str())
-  #         elif type(c.value) is long:
-  #           csv_row.append(str(c.value))
-  #         elif re.search('\n',c.value) is not None:
-  #           csv_row.append(c.value.replace("\n"," "))
-  #         else:
-  #           csv_row.append(c.value)
-  #       try:
-  #         csvobj.writerow(csv_row)
-  #       except UnicodeEncodeError as uee:
-  #         raise CharacterError(active, i, uee, csv_row)
+  with open('GTMBACurrentDrain.csv','wb') as fobj:
+    csvobj = csv.writer(fobj)
+    for i,row in enumerate(wb[sht].iter_rows(min_row=8)):
+      if row[0] is not None:
+        sn = row[0].value
+        for c in row:
+          csv_row = [sn]
+          if c.value is not None and isinstance(c.value,datetime):
+            csv_row.append(c.value)
+            csv_row.append(wb[sht].cell(row=c.row, column=c.column+1).value)
+            if c.fill.fgColor.rgb == 'FF00B050':
+              # print('OceanServer: %s'%c.column,c.coordinate)
+              csv_row.append('Test done with an OceanServer compass test')
+            elif c.fill.fgColor.rgb == 'FF00B0F0':
+              # print('Repair',c.coordinate)
+              csv_row.append('Test done post repair')
+            else:
+              csv_row.append('')
+            try:
+              csvobj.writerow(csv_row)
+            except UnicodeEncodeError as uee:
+              raise CharacterError(active, i, uee, csv_row)
 
 def make_status_csv(wb):
   sht_name = 'STATUS'

@@ -19,7 +19,7 @@ def make_data(csvfile):
         hdr = row
         continue
       ## Build Date
-      dt, tech = [n.strip() for n in row[10].split(',')]
+      if row[10]: dt, tech = [n.strip() for n in row[10].split(',')]
       try:
         dt = time.strftime('%Y-%m-%d', time.strptime(dt, '%B %Y'))
       except ValueError:
@@ -52,19 +52,6 @@ def make_data(csvfile):
   
   return info, conf
   ## def make_data
-
-def fetch_info_data():
-  dbc = tao.db.MySQL().user()
-  crs = dbc.cursor()
-  sql = r"""
-    SELECT SUBSTR(`sn`,6), MIN(dt) FROM `Flex`.`FlexHist`
-    WHERE `sn` LIKE 'FLEX%' GROUP BY `sn`
-    """
-  n = crs.execute(refmt(sql))
-  d = crs.fetchall()
-  dbc.close()
-  return [[None, r[0], str(r[1].date()), 'Randy Bott'] for r in d]
-  ## def fetch_info_data
 
 def make_ocs_data(ocsfile):
   info = []
@@ -155,8 +142,6 @@ def main(args):
   taofile, ocsfile, pfx, sqlfile = args
   info, conf = make_data(taofile)
   ## search old Flex instrument database
-  db_info = fetch_info_data()
-  info.extend(db_info)
   conf.extend(make_empty_conf(db_info))
   ## 
   ocs_info = make_ocs_data(ocsfile)

@@ -3,10 +3,13 @@ import re
 import csv
 import warnings
 import tao.db
+import re
 from tao.util import unwrap as uw
 from pprint import pformat
 from datetime import datetime, time
 from openpyxl import load_workbook
+from MySQLdb.cursors import DictCursor
+from pprint import pprint
 
 class FileError(Exception):
   def __init__(self, fname):
@@ -70,6 +73,36 @@ def comment_column(c):
   return val
   ## def comment_column
 
+def ocs_row_clean(row):
+  csv_row = []
+  for c in row:
+    if c.value is None:
+      continue
+    elif type(c.value) is long:
+      csv_row.append(str(c.value))
+    elif re.search('\n',c.value) is not None:
+      csv_row.append(c.value.replace("\n"," "))
+    else:
+      csv_row.append(c.value)
+  return csv_row
+  ## def ocs_row_clean
+
+def ocs_inventory_sht(wb,sht):
+  controllers = []
+  faceplates = []
+  for i,row in enumerate(wb[sht].iter_rows(min_row=2),2):
+    if re.match(r"(TFLEX|FLEX)\s.+", row[0].value) is not None:
+      sys.stdout.write('Controller Match: [{}: {}]\n'.format(sht, i))
+      csv_row = ocs_row_clean(row)
+      controllers.append(csv_row)
+    elif re.match(r"Face Plate",row[0].value) is not None:
+      sys.stdout.write('Face Plate Match: [{}: {}]\n'.format(sht, i))
+      csv_row = ocs_row_clean(row)
+      faceplates.append(csv_row)
+  res = {'controllers': controllers, 'faceplates': faceplates}
+  return res
+  ## def ocs_inventory_sht
+
 def make_history_csv(wb):
   for sht_name in [n for n in wb.sheetnames if n.isdigit()]:
     sht = wb[sht_name]
@@ -79,7 +112,7 @@ def make_history_csv(wb):
     for n in range(3): r = row_iter.next()
     N += n + 1
     ##
-    with open('{}.csv'.format('T'+sht_name), 'wb') as fob:
+    with open('{}.csv'.format('TMBA'+sht_name), 'wb') as fob:
       csvobj = csv.writer(fob)
       for r in row_iter:
         csv_row = []
@@ -110,7 +143,7 @@ def make_iridium_csv(wb):
   for n in range(3): r = row_iter.next()
   N += n
   ##
-  with open('{}.csv'.format(sht_name), 'wb') as fob:
+  with open('TMBA{}.csv'.format(sht_name), 'wb') as fob:
     csvobj = csv.writer(fob)
     for r in row_iter:
       N += 1
@@ -132,7 +165,7 @@ def make_iridium_csv(wb):
 
 def make_current_hist(wb):
   sht = 'CurrentDrainTests'
-  with open('GTMBACurrentDrain.csv','wb') as fobj:
+  with open('TMBACurrentDrain.csv','wb') as fobj:
     csvobj = csv.writer(fobj)
     for i,row in enumerate(wb[sht].iter_rows(min_row=8)):
       if row[0] is not None:
@@ -164,7 +197,7 @@ def make_status_csv(wb):
   for n in range(3): row_iter.next()
   N += n + 1
   ##
-  with open('{}.csv'.format(sht_name), 'wb') as fob:
+  with open('TMBA{}.csv'.format(sht_name), 'wb') as fob:
     csvobj = csv.writer(fob)
     for r in row_iter:
       if r[0].value is None:
@@ -178,18 +211,31 @@ def make_status_csv(wb):
       N += 1
   ## def make_status_csv
 
-def fetch_ocs_info():
+def fetch_ocs_status():
   dbc = tao.db.MySQL().user()
-  crs = dbc.cursor()
+  crs = dbc.cursor(DictCursor)
   sql = r"""
-    SELECT SUBSTR(`sn`,6), MIN(dt) FROM `Flex`.`FlexHist`
+    SELECT SUBSTR(`sn`,-4) AS 'sn', MIN(`dt`) as 'dt' FROM `Flex`.`FlexHist`
     WHERE `sn` LIKE '%FLEX%' GROUP BY `sn`
     """
-  n = crs.execute(refmt(sql))
+  n = crs.execute(uw(sql))
   d = crs.fetchall()
   dbc.close()
-  return [[None, r[0], str(r[1].date()), 'Randy Bott'] for r in d]
+  return d
   ## def fetch_info_data
+
+def fetch_ocs_history(sn):
+  dbc = tao.db.MySQL().user()
+  crs = dbc.cursor(DictCursor)
+  sql = r"""
+    SELECT `dt`,`comment` FROM `Flex`.`FlexHist`
+    WHERE `sn` LIKE '%FLEX%{0}%'
+    """
+  n = crs.execute(uw(sql.format(sn)))
+  d = crs.fetchall()
+  dbc.close()
+  return d
+  ## def fetch_ocs_history
 
 def make_ocs_csv(wb):
   sht_name = 'OCS'
@@ -200,7 +246,7 @@ def make_ocs_csv(wb):
   for n in range(1): row_iter.next()
   N += n + 1
   ##
-  with open('{}.csv'.format(sht_name), 'wb') as fob:
+  with open('{}Iridium.csv'.format(sht_name), 'wb') as fob:
     csvobj = csv.writer(fob)
     for r in row_iter:
       csv_row = [(((c.value is not None) and str(c.value).strip()) or str()) for c in r]
@@ -211,45 +257,43 @@ def make_ocs_csv(wb):
       N += 1
   ## def make_ocs_csv
 
+def make_ocs_hist(sns):
+  for sn in sns:
+    hist = fetch_ocs_history(sn)
+    box = r'0\d{3}'
+    sn = 'BOX'+sn if re.match(box,sn) is not None else sn
+    # for ent in hist:
+    #   ent['comment'] = comment_column(ent['comment'])
+    with open('OCS{}.csv'.format(sn),'wb') as fobj:
+      header = ['dt','comment']
+      csvobj = csv.DictWriter(fobj,fieldnames=header)
+      csvobj.writerows(hist)
+  ## def make_ocs_hist
+
 def make_ocs_inv(wb):
   active = 'In Service'
   retire = 'Retired'
-  with open('OCSInventory.csv', 'wb') as fobj:
+  with open('OCSInventory.csv', 'w') as fobj:
     csvobj = csv.writer(fobj)
-    for i,row in enumerate(wb[active].iter_rows(min_row=2),2):
-      if re.match(r"(Face Plate|FLEX\s.+)", row[0].value) is not None:
-        sys.stdout.write('Match: [{}: {}]\n'.format(active, i))
-        csv_row = []
-        for c in row:
-          if c.value is None:
-            csv_row.append(str())
-          elif type(c.value) is long:
-            csv_row.append(str(c.value))
-          elif re.search('\n',c.value) is not None:
-            csv_row.append(c.value.replace("\n"," "))
-          else:
-            csv_row.append(c.value)
-        try:
-          csvobj.writerow(csv_row)
-        except UnicodeEncodeError as uee:
-          raise CharacterError(active, i, uee, csv_row)
-    for i,row in enumerate(wb[retire].iter_rows(min_row=2),2):
-      if re.match(r"(Face Plate|FLEX\s.+)", row[0].value) is not None:
-        sys.stdout.write('Match: [{}: {}]\n'.format(retire, i))
-        csv_row = []
-        for c in row:
-          if c.value is None:
-            csv_row.append(str())
-          elif type(c.value) is long:
-            csv_row.append(str(c.value))
-          elif re.search('\n',c.value) is not None:
-            csv_row.append(c.value.replace("\n"," "))
-          else:
-            csv_row.append(c.value)
-        try:
-          csvobj.writerow(csv_row)
-        except UnicodeEncodeError as uee:
-          raise CharacterError(active, i, uee, csv_row)
+    dbstat = fetch_ocs_status()
+    make_ocs_hist([r['sn'] for r in dbstat])
+    box = r'0\d{3}'
+    for r in dbstat:
+      if re.match(box,r['sn']):
+        r['sn'] = 'BOX'+r['sn']
+    db = [[r['sn'],r['dt']] for r in dbstat]
+    act = ocs_inventory_sht(wb,active)
+    ret = ocs_inventory_sht(wb,retire)
+    inv = []
+    inv.extend(db+act['controllers']+ret['controllers'])
+    plates = []
+    plates.extend(act['faceplates']+ret['faceplates'])
+    for ent in inv:
+      try:
+        csvobj.writerow(ent)
+      except UnicodeEncodeError as uee:
+        raise CharacterError(active, i, uee, ent)
+    
   ## def make_ocs_inv
 
 def make_stratos_csv(wb):

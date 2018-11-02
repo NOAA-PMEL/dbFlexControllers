@@ -1,5 +1,5 @@
 ## order of these does matter
-SUBS := DB SIM CPU History
+SUBS := DATA History DB
 PFX := test_DAW2_
 
 .PHONY : sql db clean CSV $(SUBS)

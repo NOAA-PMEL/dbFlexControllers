@@ -1,5 +1,5 @@
 SQL := build.sql
-DATA := TMBASTATUS.csv OCS.csv
+DATA := TMBASTATUS.csv OCSInventory.csv
 CSV := ../CSV
 
 .PHONY : sql clean

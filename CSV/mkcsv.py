@@ -3,7 +3,6 @@ import re
 import csv
 import warnings
 import tao.db
-import re
 from tao.util import unwrap as uw
 from pprint import pformat
 from datetime import datetime, time
@@ -261,9 +260,7 @@ def make_ocs_hist(sns):
   for sn in sns:
     hist = fetch_ocs_history(sn)
     box = r'0\d{3}'
-    sn = 'BOX'+sn if re.match(box,sn) is not None else sn
-    # for ent in hist:
-    #   ent['comment'] = comment_column(ent['comment'])
+    sn = 'X'+sn if re.match(box,sn) is not None else 'T'+sn
     with open('OCS{}.csv'.format(sn),'wb') as fobj:
       header = ['dt','comment']
       csvobj = csv.DictWriter(fobj,fieldnames=header)
@@ -280,7 +277,7 @@ def make_ocs_inv(wb):
     box = r'0\d{3}'
     for r in dbstat:
       if re.match(box,r['sn']):
-        r['sn'] = 'BOX'+r['sn']
+        r['sn'] = 'X'+r['sn']
     db = [[r['sn'],r['dt']] for r in dbstat]
     act = ocs_inventory_sht(wb,active)
     ret = ocs_inventory_sht(wb,retire)
@@ -288,11 +285,18 @@ def make_ocs_inv(wb):
     inv.extend(db+act['controllers']+ret['controllers'])
     plates = []
     plates.extend(act['faceplates']+ret['faceplates'])
-    for ent in inv:
+    for i,ent in enumerate(inv):
       try:
         csvobj.writerow(ent)
       except UnicodeEncodeError as uee:
         raise CharacterError(active, i, uee, ent)
+    with open('OCSFaceplates.csv','w') as fobj:
+      csvobj = csv.writer(fobj)
+      for i,ent in enumerate(plates):
+        try:
+          csvobj.writerow(ent)
+        except UnicodeEncodeError as uee:
+          raise CharacterError(active,i,uee,ent)
     
   ## def make_ocs_inv
 

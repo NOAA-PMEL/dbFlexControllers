@@ -1,16 +1,16 @@
 SQL := build.sql
 CSV := ../CSV
-SN := $(shell cd $(CSV); for f in [0-9][0-9][0-9][0-9].csv; do echo "$${f:0:4}"; done)
+FL := $(shell cd $(CSV); for f in *[0-9][0-9][0-9][0-9].csv; do echo $${f:0:8}; done)
 
 .PHONY : sql clean
 
 clean : 
-	rm -f $(SQL) $(SN:%=%.src) *.pyc *.pyo ipython.log
+	rm -f $(SQL) $(FL:%=%.sql) *.pyc *.pyo ipython.log
 
 sql : $(SQL)
 
-$(SQL) : $(SN:%=%.src)
+$(SQL) : $(FL:%=%.sql)
 	( echo 'USE `$(PREFIX)FlexSystems`;'; cat $^ ) > $@
 
-$(SN:%=%.src) : %.src : mksql.py $(CSV)/%.csv
-	python2 $^ '$*' $@
+$(FL:%=%.sql) : %.sql : mksql.py $(CSV)/%.csv
+	python2 $^ $@

@@ -142,7 +142,7 @@ def make_iridium_csv(wb):
   for n in range(3): r = row_iter.next()
   N += n
   ##
-  with open('TMBA{}.csv'.format(sht_name), 'wb') as fob:
+  with open('TMBAIridium.csv', 'wb') as fob:
     csvobj = csv.writer(fob)
     for r in row_iter:
       N += 1
@@ -164,16 +164,17 @@ def make_iridium_csv(wb):
 
 def make_current_hist(wb):
   sht = 'CurrentDrainTests'
-  with open('TMBACurrentDrain.csv','wb') as fobj:
-    csvobj = csv.writer(fobj)
-    for i,row in enumerate(wb[sht].iter_rows(min_row=8)):
-      if row[0] is not None:
-        sn = row[0].value
+  for i,row in enumerate(wb[sht].iter_rows(min_row=8)):
+    if row[0] is not None:
+      sn = row[0].value
+      with open('TMBA{}.csv'.format(sn),'a') as fobj:
+        csvobj = csv.writer(fobj)
         for c in row:
-          csv_row = [sn]
+          csv_row = []
           if c.value is not None and isinstance(c.value,datetime):
-            csv_row.append(c.value)
-            csv_row.append(wb[sht].cell(row=c.row, column=c.column+1).value)
+            csv_row.append(date_column(c.row,c.column,c.value))
+            csv_row.append('')
+            csv_row.append(str(wb[sht].cell(row=c.row, column=c.column+1).value)+' mA')
             if c.fill.fgColor.rgb == 'FF00B050':
               # print('OceanServer: %s'%c.column,c.coordinate)
               csv_row.append('Test done with an OceanServer compass test')
@@ -185,7 +186,7 @@ def make_current_hist(wb):
             try:
               csvobj.writerow(csv_row)
             except UnicodeEncodeError as uee:
-              raise CharacterError(active, i, uee, csv_row)
+              raise CharacterError(sht, i, uee, csv_row)
 
 def make_status_csv(wb):
   sht_name = 'STATUS'
@@ -196,7 +197,7 @@ def make_status_csv(wb):
   for n in range(3): row_iter.next()
   N += n + 1
   ##
-  with open('TMBA{}.csv'.format(sht_name), 'wb') as fob:
+  with open('TMBAInventory.csv', 'wb') as fob:
     csvobj = csv.writer(fob)
     for r in row_iter:
       if r[0].value is None:
@@ -236,7 +237,7 @@ def fetch_ocs_history(sn):
   return d
   ## def fetch_ocs_history
 
-def make_ocs_csv(wb):
+def make_ocs_iridium(wb):
   sht_name = 'OCS'
   sht = wb[sht_name]
   row_iter = sht.rows
@@ -254,7 +255,7 @@ def make_ocs_csv(wb):
       except UnicodeEncodeError as uee:
         raise CharacterError(sht_name, N, uee, csv_row)
       N += 1
-  ## def make_ocs_csv
+  ## def make_ocs_iridium
 
 def make_ocs_hist(sns):
   for sn in sns:
@@ -263,7 +264,7 @@ def make_ocs_hist(sns):
     sn = 'X'+sn if re.match(box,sn) is not None else 'T'+sn
     with open('OCS{}.csv'.format(sn),'wb') as fobj:
       header = ['dt','comment']
-      csvobj = csv.DictWriter(fobj,fieldnames=header)
+      csvobj = csv.DictWriter(fobj,fieldnames=header,quotechar='"',quoting=csv.QUOTE_MINIMAL)
       csvobj.writerows(hist)
   ## def make_ocs_hist
 
@@ -339,10 +340,10 @@ def main(args):
     ##
     try:
       if set(['TFLEX','OCS']).issubset(wb.sheetnames):
-        make_ocs_csv(wb)
+        make_ocs_iridium(wb)
       elif set(['IridiumInfo','STATUS']).issubset(wb.sheetnames):
         make_history_csv(wb)
-        make_current_hist(wb)
+        # make_current_hist(wb)
         make_iridium_csv(wb)
         make_status_csv(wb)
       elif 'Mobile Info & Summary' in wb.sheetnames:

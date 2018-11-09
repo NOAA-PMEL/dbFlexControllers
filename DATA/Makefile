@@ -1,5 +1,5 @@
 SQL := build.sql
-DATA := TMBASTATUS.csv OCSInventory.csv
+DATA := $(shell cd $(CSV); for f in *Inventory.csv *Iridium.csv *Faceplates.csv; do echo $$f; done)
 CSV := ../CSV
 
 .PHONY : sql clean

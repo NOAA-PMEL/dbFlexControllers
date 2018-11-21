@@ -1,0 +1,11 @@
+2015-11-17,,Completed build up of NEW system sn 0023.  Tested all sensor inputs successfully.  RF modem tested okay.  Installed new Iridium SIM card.  Still needs GPS and Iridium XMIT test.  Also still needs current drain test.
+2015-11-18,18:45,Successfully tested GPS and Iridium XMIT function outside.  XMIT test files sent okay.
+2015-11-20,,"Ran Current drain test for 2 days, 14.36mA Average.  Dumped FLASH RAM data file, which looked okay."
+2017-12-11,,Back from India air shipment.  
+2017-12-18,,"Updated Iridium 1st Transmit time to 00:35.  Updated firmware to v2.01, 170530."
+2017-12-19,,"Did 1 day current drain & functional test.  All sensors working, current drain 16.54mA ave."
+2018-01-02,,Successfully tested GPS and Iridium XMIT test outside.
+2018-03-01,,"Tried to use for IO2-18-RB, testing outside, but for some reason, the subsurface sensor Iridium buffers were time-stamped with two different times, one hour apart.  For example, buffers in the same 6 hour Iridium transmit window, half of which were time-stamped 0100, and the other half 0200.  Not sure if this is a CPU or IMM problem."
+2018-05-14,,"This Iridium buffer time mismatch may be caused by the Iridium 1st transmit time set to 00:35, which is maybe too close to update time function at 12:38."
+2018-05-21,,"Rain Bench test with an Iridium 1st transmit time of 00:45.  Did not see a buffer timing problem, so it looks like the problem is fixed by NOT using a 1st transmit time of 00:35.  Current drain for 4.5 days was 14.15mA average."
+2018-05-21,,Installed SS metal bottom circuit board stack standoffs.

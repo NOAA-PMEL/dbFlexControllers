@@ -1,0 +1,6 @@
+2017-08-23,,Built NEW.  Installed NEW Iridium SIM Card.
+2017-08-25,,"Successfully tested all MET sensor inputs, IM data, and GPS. RF Modem not working with 1st time install of v2.01, 170530 firmware"
+2017-08-25,,"RF modem working with version 1.12, 150313 firmware.  Then still working when upgrading to v2.01, 170530"
+2017-08-28,,"Ran Bench current drain test for 3 days with version 2.01, 170530 firmware, RF modem turned off, 13.64mA Average."
+2017-08-28,,"Tested internal Iridium antenna by doing an XMIT outside, which successfully registered and sent dummy files."
+2018-10-30,,"Back from Indonesia, IO1-18, NOT deployed, needs checkout/upgrades."

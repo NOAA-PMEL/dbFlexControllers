@@ -1,0 +1,7 @@
+2015-10-22,,"Built up system 0018, all sensors worked, except Baro LWR & SWR.  Swapped MET, Serial board, but LWR & SWR still not working.  Could have been issue, current limiting issue with SW Rad.  Finally swapped CPU board, and LWR & SWR finally fixed and functional."
+2015-10-23,,"Iridium SIM card installed.  All sensors tested okay.  All functions tested okay, RF modem & Irdium xmit successful.  Needs current drain testing."
+2015-11-06,,"Ran Current drain test, 14.57mA Average.  Dumped FLASH RAM data file, which looked okay."
+2017-12-11,,Back from India (air shipment)
+2017-12-18,,"Updated Iridium 1st transmit time to 00:41.  Upated firmware to version 2.01, 170530."
+2017-12-28,,"Ran Current drain test for 8 days (over Xmas Holiday), 14.02mA Average.  Dumped FLASH RAM data file, which looked okay."
+2018-01-02,,Successfully tested GPS and Iridium XMIT test outside.

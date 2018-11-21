@@ -1,0 +1,6 @@
+2017-05-22,,"Built NEW. Successfully tested all MET sensor inputs, RF modem, IM data, and GPS.  Also installed NEW Iridium SIM card. Needs current drain test."
+2017-05-25,,"Started 1st bench current drain test, but then found IM data reading 2E+35, one day later on the 26th.  Reset system, sent initimm command,  fixing IM data error, IM data working okay, so restarted current drain test again."
+2017-06-01,,"Ran Bench current drain test again for 5 days, 13.66mA Average, IM data worked okay."
+2017-07-15,,Ryan used this system for the Gill Wind Sparton/Ocean Server Compass test out at the Grassy Knoll.  This system never called into RUDICS via Iridium.  NO IRIDIUM Data buffers.
+2017-08-23,,"Ryan brought this system back to the lab.  I changed out the Iridium Transmit antenna cable, which fixed the problem. XMIT worked outside of bldg 3."
+2017-09-13,,"Upgraded to version 2.01, 170530 for PI4-17-RB."

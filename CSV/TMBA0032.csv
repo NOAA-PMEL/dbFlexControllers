@@ -1,0 +1,8 @@
+2016-06-20,,Completed build up of NEW system sn 0032.  Tested all sensor inputs successfully.  RF modem tested okay.  Installed new Iridium SIM card. Successfully tested GPS and XMIT functions with roof-mounted antennas connected inside lab.
+2016-06-30,,"Ran Current drain test for 2 days, 14.65mA Average.  Dumped FLASH RAM data file, which looked okay."
+2018-07-18,,Installed SS metal standoffs on bottom of circuit board stack.
+2018-07-18,,"Upgraded to firmware version 2.01, 170530."
+2018-07-18,,Changed Iridium 1st XMIT time to 00:44
+2018-07-25,,"Current drain test after deployment at 0-23W, PT008, ran for 5 days, 14.50mA."
+2018-07-31,,Successfully tested GPS and Iridium XMIT outside
+2018-07-31,,"Installed NEW O-rings, face seal & jam seal."

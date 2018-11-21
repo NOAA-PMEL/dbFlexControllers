@@ -1,0 +1,12 @@
+2008-12-02 14:59:11,"Deployed KE006
+Wired for Druck, Vaisala
+"
+2008-06-24 12:00:00,"AT channel A/D calibration:
+-3.991594E-01	2.464431E-04
+RH channel A/D calibration:
+4.527267E-04	2.686891E-04"
+2009-09-04 00:00:00,"Recovered KE006, Flex v1.05 080721.  Worked well -rk"
+2010-01-14 11:55:17,"Post-deployment (KEO006)  I/O cal for ATRH performed by Pat.  AT A/D calibration A3 = -3.98868E-01,  A4= 2.465779E-04,  RH A/D calibration A3 = 1.672821E-04, A4 = 2.692713E-04 (kbr)"
+2010-02-25 10:10:48,Only has one 62 pin; use for hygroclip cal box - rk
+2010-03-01 16:30:18,"Modified to be hygroclip cal box, ATRH cal software installed. -rk"
+2011-01-13 12:37:40,Circuit boards removed to use in box 2.  JAK

@@ -1,0 +1,12 @@
+2016-06-30,,Completed build up of NEW system sn 0035.  Tested all sensor inputs successfully.  RF modem tested okay.  Installed new Iridium SIM card. Successfully tested GPS and XMIT functions with roof-mounted antennas connected inside lab.
+2016-07-12,,"Ran Current drain test for 4 days, 17.9mA Average.  Dumped FLASH RAM data file, which looked okay."
+,,Need to run GPS and XMIT test with system antennas (not roof antennas).
+2017-08-08,,"Spare back from French Pirata, PI2-17-TH.  Long stand-offs holding MET board (and boards above stack, Serial, CPU) broke and French found, taped up"
+2017-08-21,,"Installed new standoffs for circuit board stack.  Did 3 day current drain check, 13.89mA average."
+2017-10-24,,"Back from Grassy Knoll, Gill wind Spartan vs. Ocean Server Test"
+2017-10-24,,"No Iridium xmissions from Grassy Knoll, so replaced Iridium Antenna cable, tested okay, successfully with XMIT command outside."
+2017-10-24,,"Upgraded to firmare version 2.01, 170530"
+,,"Tried to use for PI4-17-RB???  But, XMIT command did NOT work."
+2018-03-08,,"Bench tested with rooftop Iridium antenna, and XMIT worked okay, Registered and sent all Block 1-6 dummy files successfully."
+2018-03-08,,"Tested XMIT outside successfully, registered and sent all 6 dummy files successfully on 1st XMIT command try."
+2018-05-07,,Installed SS metal bottom circuit board stack standoffs.

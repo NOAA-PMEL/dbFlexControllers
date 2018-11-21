@@ -1,0 +1,4 @@
+2017-12-19,,Built NEW.  Installed NEW Iridium SIM Card.
+2018-01-08,,"Successfully tested all MET sensor inputs, RF modem, IM data, and GPS."
+2018-01-15,,"Ran Bench current drain test for 4 days with version 2.01, 170530 firmware, RF modem turned off, 13.90mA Average."
+2018-01-15,,"Tested internal Iridium antenna by doing an XMIT outside, which successfully registered and sent dummy files."

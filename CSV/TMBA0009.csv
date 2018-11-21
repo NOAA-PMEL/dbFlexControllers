@@ -1,0 +1,29 @@
+2012-03-01,,"Built NEW, bench tested okay, all sensors working, except Inductive modem, which will not work with IMM firmware v1.14.  Loaded firmware v1.11, 111121.  Installed new sim card into Iridium modem."
+2012-03-05,,"Installed different IMM, firmware version 1.12, which fixed Inductive data.  All sensor types working SBE37, SBE39, & Aquadopp."
+2012-03-06,,"Tested out in Dog house, XMIT & GPS tested good, all sensor data coming through Iridium Rudics"
+2012-03-07,,"Did 24 hour current drain test, 20mA ave."
+2012-03-16,,Baro Failed during testing.
+2012-03-29,,"Found problem with Baro. No power to Baro on MET board. Baro connected to12v Auxiliary power via Jumper JP4 pins 1&2, but Auxiliary power not working.  Switched JP4 jumpers to pins 2&3, which connects main battery voltage, and Baro now working.  BUT Auxiliary power circuit failed, with no 12v output.  Not sure if Baro is the only channel connected to Auxiliary power."
+2012-04-02,,"Removed U40 & Q14 from failed Auxiliary power circuit onTFLEX0009 MET board.  Aux power failed and not needed, since Aux power is used only with Druck pressure sensor.  The Druck requires a miniumum of 11v input.  TFLEX does not use the Druck, so I just disabled the circuit by removing U40 & Q14."
+2012-04-02,18:20,Start new current drain test with all sensors connected.
+2012-04-05,15:40,"Stopped test because SW&LW outputs failed.  Current drain was about 23.2mA, but then went to 24.4mA after they failed.  I saw this same thing on the TFLEX0008 current drain test.  In both cases, resetting the power fixed it."
+2012-04-05,18:05,Started new current drain test.
+2012-04-06,18:05,"Ended current drain test, SW&LW failed again, current drain 21.74 mA ave."
+2013-02-04,,"Updated firmware to version 1.12, 130201"
+2013-02-05,,"NEW in lab, needs testing for LW & SW in log mode."
+2015-04-01,,Removed JP24 Solder bridge on CPU Bd.  Changed R4 to 887 Ohms on CPU bd.  
+2015-04-06,,"Installed NEW MET board with updated U1, U2, U40 TI chips."
+2015-04-06,,"Updated firmware to version 1.12, 150313."
+2015-04-08,,"Ran 2 day current drain test outside in doghouse with all sensors, 14.42mA ave.  Flash Ram data good.  SW & LW data good."
+2015-10-28,,"Changed Rain Shield ground from Seawater to Chassis, power PIN 1 ground."
+2017-08-07,,"LWR failed during deployment at 0-23W, PT-007.  Tested TFLEX0009 LWR channel and LW/Rad Y-cable, both tested out okay with the deployed LWR sensor sn 36386.  I did find a cut pigtail connector, but on the SWR/Rad Y-cable not the LWR cable.  "
+2017-08-14,,"Ran 7 day current drain test, 17.81mA average.  LWR data looked good."
+2018-01-08,,"Installed v2.01, 170530 for PI4-17-RB(2018), to run extra Norteks for AOML.  It was decided NOT to use v1.16 firmware for realtime Oxygen, because of firmware bug with loss of all data when 1 Nortek fails.  Dan tried testing to recover from this failure with no success (so it was decided to use v2.01 instead)."
+2018-03-12,,"Shipped for PI4-17-RB (PNE 2018).  SteveK found stand-offs sheared off and broken and circuit board stack hanging from wires, probably from rough handling during truck transport to Ft. Lauderdale."
+,,"Steve got ERROR, ""computer to modem communications bad"" on PI4-17-RB.  Steve also reported that he found corrosion on the ""connector board"" below the faceplate connectors."
+2018-03-13,,"During the PI4-17-RB cruise, SteveK swapped the CPU board from TFLEX0009 into the spare TFLEX0003, since TFLEX0003 had v1.16 and he needed v2.01 (since he forgot the PE Micro firmware interface box, and could not update TFLEX0003)."
+2018-05-09,,Installed new connector board.  Fixed chassis stand-off mounts.  Installed SS metal bottom standoffs.
+2018-05-09,,"Configure CPU for TFLEX0009 (since Steve swapped TFLEX0003 CPU board on PI4-17-RB).  Installed firmware version 2.01, 170530."
+2018-05-09,,Tested on bench.  No power being routed to Iridium modem from Serial board.  Replaced serial board.  Now Iridium modem working.
+2018-05-15,,"Ran bench test current drain for 5.5 days, 15.55mA average.  Flash RAM data dump good."
+2018-05-15,,Successfully Tested XMIT command outside to check internal Iridium and GPS antennas

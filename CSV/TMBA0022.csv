@@ -1,0 +1,9 @@
+2015-11-17,,Completed build up of NEW system sn 0022.  Tested all sensor inputs successfully.  RF modem tested okay.  Installed new Iridium SIM card.  Still needs GPS and Iridium XMIT test.  Also still needs current drain test.
+2015-11-18,19:20,"Successfully tested GPS and Iridium XMIT function outside, although it tood 4 XMIT commands for it to finally register with Iridium.  XMIT test files sent okay."
+2015-11-23,,"Ran Current drain test for 2 days, 15.10 mA Average.  Dumped FLASH RAM data file, which looked okay."
+2017-12-14,,"Finally back from India (air shipment), changed Iridium 1st xmit time to 00:45, also updated firmware to v2.01,170530. Checked Iridium and GPS outside successfully."
+2017-12-15,,"Did 1 day current drain & functional test.  All sensors working, current drain 13.75mA ave."
+2018-09-20,,"Back from IO2-18-RB, not deployed at 8S-81E due to bad weather."
+2018-11-08,,Installed metal SS standoffs on the bottom of the circuit board stack.
+2018-11-13,,"Ran Current drain test for 4 days, 12.88 mA Average.  Dumped FLASH RAM data file, which looked okay."
+2018-11-13,,Successfully tested GPS and Iridium XMIT commands outside with internal antennas.

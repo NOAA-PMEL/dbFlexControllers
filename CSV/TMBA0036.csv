@@ -1,0 +1,11 @@
+2016-08-15,,Completed build up of NEW system sn 0036.  Tested all sensor inputs successfully.  RF modem tested okay.  Installed new Iridium SIM card. Successfully tested GPS and XMIT functions with roof-mounted antennas connected inside lab.
+2016-08-22,,"Ran Current drain test for 3 days, 13.98mA Average.  Dumped FLASH RAM data file, which looked okay."
+,,Need to run GPS and XMIT test with system antennas (not roof antennas).
+2018-07-17,,"Back from Brazil, PI3-17.  Was supposed to be deployed at 15N-38W, but was NOT deployed because GPS NOT working???"
+2018-07-18,,"GPS bench tested okay with roof GPS antenna, but did NOT work outside on its internal antenna."
+2018-07-18,,"Didn't have any new GPS antennas/cables left, so scavenged one from damaged TFLEX0021, and installed into TFLEX0036."
+2018-07-18,,"Upgraded firmware to version 2.01, 170530."
+2018-07-18,,Successfully tested GPS and Iridium XMIT outside with internal antennas.
+2018-07-18,,Changed Iridium 1st XMIT time to 00:37
+2018-07-18,,Installed SS metal standoffs on bottom of circuit board stack.
+2018-07-23,,"Ran Current drain test for 4 days, 14.17mA Average.  Dumped FLASH RAM data file, which looked okay."

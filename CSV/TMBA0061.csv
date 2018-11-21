@@ -1,0 +1,6 @@
+2018-09-10,,Built NEW. *USED RECYCLED SEABIRD IMM.
+2018-09-11,,"Successfully tested all MET sensor inputs, RF modem, IM data, and GPS (with rooftop antenna), waiting for SIM card."
+2018-09-12,,Installed new Iridium SIM card.
+2018-09-20,,"Ran Bench current drain test for  7 days with version 2.01, 170530 firmware, but Patrick stopped my running average when he used my multimeter, but average was around 14mA."
+2018-10-25,,Ran Bench current drain test AGAIN for 3 days with average current drain of 13.33mA.  Flash RAM data dump looked good.
+2018-10-25,,Successfully tested internal GPS & Iridium antenna by doing an GPS & XMIT outside.

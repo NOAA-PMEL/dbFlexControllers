@@ -1,0 +1,5 @@
+2018-09-10,,Built NEW. *USED RECYCLED SEABIRD IMM.
+2018-09-11,,"Successfully tested all MET sensor inputs, RF modem, IM data, and GPS (with rooftop antenna), waiting for SIM card."
+2018-09-12,,Installed Iridium SIM card.
+2018-11-01,,"Ran Bench current drain test for 3 days with version 2.01, 170530 firmware, RF modem turned off, 13.23mA Average. Downloaded and checked Flash RAM data, which looked good."
+2018-11-01,,"Tested internal GPS & Iridium antenna by doing an GPS & XMIT outside, which successfully registered and sent dummy files, plus GPS got position, and Time & Date update."

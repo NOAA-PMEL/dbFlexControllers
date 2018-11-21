@@ -1,0 +1,8 @@
+2016-06-17,,Completed build up of NEW system sn 0029.  Tested all sensor inputs successfully.  RF modem tested okay.  Installed new Iridium SIM card. Successfully tested GPS and XMIT functions with roof-mounted antennas connected inside lab.
+2016-06-20,,"Just as a note.  I did the mods on the serial board shorts on U17 pins 5&7, plus I soldered RN6 next to U17."
+2016-06-28,,Ran Current drain test for 1 day.  TFLEX0029 failed.  Stopped logging & transmitting.  Sitting at 40mA current drain.
+2016-06-28,,"Ryan tried to troubleshoot, but could not find anything conclusive as the cause of the failure.  He said maybe there was a connector that wasn't seated.  TFLEX0029 will have to be run again on current drain test.  "
+2017-01-23,,"Ryan fixed this system while I was at sea on IO5-16.  He replaced the MET and Serial boards, which fixed the Iridium transmitting problem.  He did a current drain test resulting in a 13.8mA average."
+2017-10-12,,"SPARE back from IO2-17-IS.  Did overnight current drain check, 13.76mA average."
+2017-10-12,,"Upgraged firmware to version 2.01,170530"
+2017-10-12,,tested GPS and XMIT Iridium outside successfully.

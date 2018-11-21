@@ -1,0 +1,11 @@
+2015-10-22,,"Entire system 0019 built up, Iridium SIM card installed.  All sensors tested okay.  All functions tested okay, RF modem & Irdium xmit successful.  Needs current drain testing."
+2015-10-28,,"Ran Current drain test, 14.06mA Average.  Dumped FLASH RAM data file, which looked okay."
+2017-12-11,,Back from India air shipment.
+2018-01-03,,"Updated Iridium 1st transmit time to 00:42, and updated firmware to version 2.01, 170530"
+2018-01-05,,"Ran Current drain test for 2 days, 13.75mA Average.  Dumped FLASH RAM data file, which looked okay."
+2018-01-05,,Successfully tested Iridium XMIT and GPS test outside.
+2018-03-01,,"Tried to use for IO2-18-RB, but IMM data bad, got ""comma error, IM line not captured."
+2018-03-20,,"Replaced IMM, but inductive data still BAD, still get error ""IM line not captured"" for each sensor.  Tested original IMM with Seabird test coil, wiring harness, com cable, and original IMM tested out okay."
+2018-03-20,,"Replaced Serial board, but it didn't fix IMM data, so swapped the RIG board with the same Seabird IMM module, and this fixed the IM data.  IM data now working."
+2018-03-20,,"Bench tested all sensors after fix, everything working okay. Plus successfully tested GPS and Iridium XMIT outside."
+2018-05-07,,Installed SS metal bottom circuit board stack standoffs.

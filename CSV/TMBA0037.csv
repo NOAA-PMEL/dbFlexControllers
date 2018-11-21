@@ -1,0 +1,5 @@
+2016-08-15,,Completed build up of NEW system sn 0037.  Tested all sensor inputs successfully.  RF modem tested okay.  Installed new Iridium SIM card. Successfully tested GPS and XMIT functions with roof-mounted antennas connected inside lab.
+2016-08-25,,"Ran Current drain test for 3 days, 14.29mA Average.  Dumped FLASH RAM data file, which looked okay."
+,,Need to run GPS and XMIT test with system antennas (not roof antennas).
+2016-12-09,,"Put TFLEX0037 outside on test for PI3-17-AN (Brazil).  Everything worked except the Hygroclip ATRH.  The sensor was okay, so ohmed out ATRH IO pins to the MET board, which all looked okay.  So, swapped in a NEW MET board, which fixed the Hygro ATRH."
+2018-08-03,,"DAMAGED on PT016, 4N-38W, mooring broke free, Vandalized?  Brasilians reported corrosion inside TFLEX on circuit boards?  No FLASH RAM data?  Brasilians could not dump data.  NEED TO GIVE FLASH CARD TO Dan to dump entire card to look for any data."

@@ -1,0 +1,5 @@
+2018-06-05,,Built NEW.
+2018-06-06,,"Successfully tested all MET sensor inputs, RF modem, IM data, and GPS (roof antenna), waiting for Iridium SIM card."
+2018-06-07,,"Got SIM cards from Weiming Tan instead of Ben Carlson.  Weiming assigned SIM card to wrong RUDICS Group, the AMOS Connect standard instead of the NOAA PMEL Standard.  He realized the error, and had Inmarsat support change it to the correct group.  Subsequently, the SIM cards and Iridium XMITs started working."
+2018-07-30,,"Ran Bench current drain test for 7 days with version 2.01, 170530 firmware, RF modem turned off, 14.17mA Average."
+2018-07-30,,"Tested internal Iridium & GPS antennas by doing a GPS & XMIT outside, which were both successful."

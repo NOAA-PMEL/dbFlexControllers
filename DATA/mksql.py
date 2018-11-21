@@ -32,26 +32,36 @@ def makeData(csvfiles):
                 'serial': row[0][1:],
                 'type':2,
                 'dt': row[1],
-                'platform':None,
+                'platform':'',
                 'rf':row[0][1:],
                 'firm':'1.12,150313',
-                'call':int(row[0][-2:]) if row[0] else None,
-                'card':None,
+                'call':int(row[0][-2:]) if row[0] else 'NULL',
+                'card':'NULL',
                 'proj':2,
-                'irproj':None
+                'irproj':'',
+                'metfix': 1,
+                'jp24': 1,
+                'cpur4': 1,
+                'raingnd': 1,
+                'ssstoff': 1
               })
             elif re.match(r"\d{4}",row[0]):
               con.append({
                 'serial': row[0],
                 'type':1,
                 'dt': row[1],
-                'platform':None,
+                'platform':'',
                 'rf':row[0],
                 'firm':'1.12,150313',
-                'call':int(row[0][-2:]) if row[0] else None,
-                'card':None,
+                'call':int(row[0][-2:]) if row[0] else 'NULL',
+                'card':'NULL',
                 'proj':2,
-                'irproj':None
+                'irproj':'',
+                'metfix': 1,
+                'jp24': 1,
+                'cpur4': 1,
+                'raingnd': 1,
+                'ssstoff': 1
               })
             elif row[1] not in [n['serial'] for n in con]:
               raise Exception('OCS Inventory file issues, missing a serial #'+row[1])
@@ -77,10 +87,15 @@ def makeData(csvfiles):
                 'platform':row[1],
                 'rf':row[2],
                 'firm':row[4].replace(' ',''),
-                'call':int(row[8][3:]) if row[8] else None,
+                'call':int(row[8][3:]) if row[8] else 'NULL',
                 'card':row[11],
                 'proj':1,
-                'irproj':'FLEX'
+                'irproj':'FLEX',
+                'metfix': 2 if row[12] else 1,
+                'jp24': 2 if row[13] else 1,
+                'cpur4': 2 if row[14] else 1,
+                'raingnd': 2 if row[15] else 1,
+                'ssstoff': 2 if row[16] else 1
               })
         else:
           raise Exception('Unable to process inventory file: '+csvfile)
@@ -148,7 +163,7 @@ def makeSQL(ls):
         SET @sim_inst_id = LAST_INSERT_ID();
         SELECT `inst_id` INTO @con_inst_id 
         FROM `ControllersInfo` 
-        WHERE `serial` = '{serial}' AND `type` = {type};
+        WHERE `sn` = '{serial}' AND `type_id` = {type};
         INSERT INTO `SIMInfo` (`inst_id`,`iccid`,`data_num`,`voice_num`,`dt`)
         VALUES (@sim_inst_id,'{icc}','{data}','{voice}','{dt}');
         INSERT INTO `SIMConfig` (`inst_id`,`dt`,`proj_id`,`active`,`system_id`)
@@ -180,6 +195,8 @@ def makeSQL(ls):
         VALUES (@con_inst_id,'{serial}','{dt}',{type});
         INSERT INTO `FlexConfig` (`inst_id`,`dt`,`proj_id`,`iridium_proj`,`platform_id`,`rf_id`,`firmware`,`first_call`,`flash_card`)
         VALUES (@con_inst_id,'{dt}',{proj},'{irproj}','{platform}','{rf}',@firm_id,{call},@card_id);
+        INSERT INTO `FlexFixes` (`inst_id`,`met_ic`,`solder_cpu_jp24`,`cpu_r4_887`,`rain_gnd`,`ss_standoff`)
+        VALUES (@con_inst_id,{metfix},{jp24},{cpur4},{raingnd},{ssstoff});
       """.format(**d))
       ## add to the sql list
       sql.append(ins)
@@ -279,7 +296,7 @@ def makeTables(pfx,drop=True):
     uw(r"""
     CREATE TABLE `SIMInfo` (
       `inst_id` int(10) unsigned NOT NULL,
-      `iccid` int(11) unsigned NOT NULL,
+      `iccid` bigint(12) unsigned NOT NULL,
       `data_num` bigint(12) unsigned NOT NULL,
       `voice_num` bigint(12) unsigned NOT NULL,
       `dt` datetime NOT NULL,
@@ -300,23 +317,23 @@ def makeTables(pfx,drop=True):
     """)
   ]
   callTimes = [['call','00:{:02}'.format(x)] for x in range(1,60)]
-  options = [uw(r"""
+  options = [r"""
     INSERT INTO `ControllersOptions` (`id`, `key`, `txt`)
     VALUES
-    	(1,'ctype','TFLEX'),
-    	(2,'ctype','FLEX Box'),
-    	(1,'fixes','No'),
-    	(2,'fixes','Yes'),
-    	(1,'card','2GB'),
-    	(2,'card','128MB'),
+      (1,'ctype','TFLEX'),
+      (2,'ctype','FLEX Box'),
+      (1,'fixes','No'),
+      (2,'fixes','Yes'),
+      (1,'card','2GB'),
+      (2,'card','128MB'),
       (1,'active','Active'),
-      (2,'active','Inactive');
-    """)]
-  for r in callTimes:
-    options.append(uw(r"""
-    INSERT INTO `ControllersOptions` (`id`, `key`, `txt`)
-    VALUES (NULL,'{0}','{1}');
-    """.format(*r)))
+      (2,'active','Inactive'),
+    """]
+  for i,r in enumerate(callTimes):
+    if i == len(callTimes) -1:
+      options.append(uw(r"(NULL,'{0}','{1}');".format(*r)))
+    else:
+      options.append(uw(r"(NULL,'{0}','{1}'),".format(*r)))
   
   ## Compile all lists
   sql = db+dropThese+tables+options

@@ -1,0 +1,6 @@
+2017-05-23,,"Built NEW. Successfully tested all MET sensor inputs, RF modem, IM data, and GPS.  Also installed NEW Iridium SIM card. Needs current drain test."
+2017-06-09,,"Ran Bench current drain test for 3 days, 13.85mA Average."
+2017-10-24,,"Back from the Grassy Knoll, Gill Wind Sparton vs. Ocean Server Compass test"
+2017-10-24,,"Upgraded firmware to version 2.01, 170530"
+2018-06-12,,"Sent to IO1-18 Indonesia.  Tested okay here, but while testing on deck at sea, GPS only getting fixes sporadically, 2 of 6, 1 of 6 per day.  Need to check antenna connection to RIG board.  Maybe move Iridium 1st transmit time later???"
+2018-10-30,,"Back from Indonesia, IO1-18.  NEEDS TESTING, REPAIR for GPS, GPS module on RIG board? Or NEW GPS antenna???"

@@ -1,0 +1,30 @@
+X0002,2008-12-02 14:54:57
+X0004,2008-01-13 12:00:00
+X0005,2009-01-23 14:05:27
+X0006,2008-12-15 15:36:55
+X0007,2008-06-24 12:00:00
+X0008,2008-12-02 15:04:08
+X0009,2008-06-24 12:00:00
+X0010,2010-03-08 19:09:44
+X0011,2007-06-01 12:00:00
+2001,2014-06-18 00:00:00
+2002,2014-06-28 00:00:00
+2003,2014-06-15 00:00:00
+2004,2014-06-15 00:00:00
+2005,2014-06-15 00:00:00
+2006,2014-06-15 00:00:00
+FLEX Box (Druck),0006,Recovered,Lab,KEO 2016,KEO 2018 Spare,-1,IMM comms had 2E35 error at ARC.  Reinstalled original CPU board and could not replicate problem.  Tested 4/2011. Added Iridium handshaking 1/10/12. Replaced internal IMM due to intermittent 2E35s 10/17/12.
+FLEX Box (Druck),0008,Deployed,KEO,KEO 2017,-1,Deployed at KE009 11/14/11. Recovered 7/5/12. Added Iridium handshaking 10/2012.
+FLEX Box (Druck),0009,Needs Cal,Lab,KEO 2017 Spare,KEO 2018,-1,Returned from ARC 6/9/11. Added Iridium handhsaking 1/10/12. Deployed at KE010 7/4/12.
+FLEX Box (Druck),0010,Flakey,Lab,KEO 2010,"Showed 28 resets between 04:00 5/28/11 and 13:00 5/29/11. Multiple resets, then stopped transmitting 9/14/11. Recovered from KE008 11/14/11. Pat tested, changed firmware.  Still stalls on startup without RF modem. Added Iridium handshaking 10/2012."
+FLEX Box (Paros),0002,Deployed,Papa,Papa 2017,-1,Swapped boards with 0007 after exposed to 40V.  Modified boards and changed to Paros wiring. Added Iridium handshaking and hygroclip wiring.  12/22/11
+FLEX Box (Paros),0004,Recovered,Lab,Papa 2016,Papa 2018 Spare,-1,Recovered from PA004 6/13/11. Added Iridium handshaking.  1/10/12
+FLEX Box (Paros),0005,Ready,Lab,Papa 2017 Spare,Papa 2018,-1,Added Iridium handshaking 10/2012.
+TFLEX Tube,2001,Deployed,Papa,Papa 2017 TFLEX,-1,New 4/2014 Evidence of water intrusion when recovered from PA008.  Salt crystals beneath RF antenna.
+TFLEX Tube,2002,Deployed,KEO,KEO 2017 TFLEX,-1,New 4/2014
+TFLEX Tube,2003,Needs Cal,Lab,Papa 2017 Spare,Papa 2018 TFLEX,-1,New 4/2014
+TFLEX Tube,2004,Needs Cal,Lab,KEO 2017 Spare,KEO 2018 TFLEX,-1,New 4/2014
+TFLEX Tube,2005,Recovered,Lab,Papa 2016 TFLEX,Papa 2018 Spare,-1,New 4/2014
+TFLEX Tube,2006,Recovered,Lab,KEO 2016 TFLEX,KEO 2018 Spare,-1,New 4/2014
+FLEX Box (Druck),0011,Needs Repair,Pat's Office
+FLEX Box (Hygroclip),0007,Broken/Retired,Lab,Swapped boards into 0002.  Contains non-working boards exposed to 40V. Loaned to EDD in 2014 for DART/PICO comparison test.

@@ -1,0 +1,5 @@
+2016-06-27,,Completed build up of NEW system sn 0030.  Tested all sensor inputs successfully.  Installed new Iridium SIM card. Successfully tested GPS and XMIT functions with roof-mounted antennas connected inside lab.
+2016-06-28,,"RF Modem did not work.  Replaced RIG board, including a new RF modem module, and RF modem fixed, working okay."
+2016-06-29,,"Ran current drain test with Fluke27 handheld meter for 2 days, and got an average of 18mA.  Need to run the current drain test again with the more accurate meter."
+2016-07-14,,"Ran current drain test overnight on bench with more accurate meter, Fluke 8846A, and for some reason, current rain high with an overnight average of 49mA.  This system needs to be checked out for problems, although all sensors are working.  Ryan says its current drain is nominal most of the time, except for some periods of intermittant peaks that exceed the limit on his new power supply, 5A max?"
+2017-01-18,,Ryan repaired this system while I was at sea on IO5-16.  He replaced the RF Modem (again) and says it is fixed.  He ran a current drain test with an average of 14.1mA.

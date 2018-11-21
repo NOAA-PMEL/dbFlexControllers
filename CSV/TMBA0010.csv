@@ -1,0 +1,16 @@
+2012-08-31,,"Chassis built up and wired up, including RIG board, waiting for rest of circuit boards to be made."
+2013-05-30,,"Installed new circuit boards, CPU, Serial, and MET.  CPU not working correctly due to the wrong Oscillator installed.  Part should be 32.768KHZ, not 32.0KHZ.  The wrong oscillator causes the RS232 serial data to be clocked incorrectly, so the serial data out is all garbage, control characters."
+2013-05-30,,"Dirk found the problem and installed the correct oscillator, 32.768KHZ.  CPU working now. "
+2013-05-31,,"Installed new firware version 1.12, 130306.  All data inputs tested okay.  RF modem tested okay. Formated new 2GB Flash Ram Card."
+2013-06-11,00:00,Started current drain test with all sensors in Doghouse outside
+2013-06-13,21:30,Stopped current drain test.  Ave current = 13.27mA
+2013-08-06,,"Accidentally plugged Radiation input into the wind, and wind into the Radiation connector in the dog house.  It seems to be working okay, but it should be mentioned here to check those test sensors and to recheck current drain for TFLEX0010."
+2014-05-02,,"Installed re-worked MET board with changes to U1, U2, U40.  Also removed JP24 solder bridge on CPU bd.  Plus updated firmware to v1.12, 140211."
+2015-09-14,,Spare sent for IO1-15 & IO4-15
+2017-12-21,,Back from India air shipment
+2017-12-28,,"Updated RAIN shield ground from seawater to power ground, pin1 connected to pin6.  Installed new ground connector, pin1 & pin2 connected for the IM ground."
+2017-12-28,,"Updated RAIN shield ground from seawater to power ground, pin1 connected to pin6.  Installed new ground connector, pin1 & pin2 connected for the IM ground.  CPU R4 change to 887 Ohms."
+2017-12-29,,"Back from India Air shipment, December 2017.  Updated Iridium 1st Xmit time to 00:44."
+2018-01-02,,"Ran current drain test for 3 days, 16.22mA Average."
+2018-01-02,,Successfully tested GPS and Iridium XMIT test outside.
+2018-05-07,,Installed SS metal bottom circuit board stack standoffs.

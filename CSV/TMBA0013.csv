@@ -1,0 +1,18 @@
+2012-08-31,,"Chassis built up and wired up, including RIG board, waiting for rest of circuit boards to be made."
+2013-06-04,,"Installed NEW circuit boards, MET, Serial, and CPU board. "
+2013-06-04,,"Installed new firware version 1.12, 130306.  All data inputs tested okay.  RF modem tested okay. Formated new 2GB Flash Ram Card."
+2013-07-01,18:00,Started current drain test with all sensors in Doghouse outside
+2013-07-02,17:15,Ave current drain = 15.2mA
+2013-07-03,19:40,Ave current drain = 15.48mA
+2013-07-08,17:45,Stopped current drain test.  Ave current = 15.37mA
+2014-05-05,,"Installed re-worked MET board with changes to U1, U2, U40.  Also removed JP24 solder bridge on CPU bd.  Plus updated firmware to v1.12, 140211."
+2015-03-20,,"Updated CPU R4 to 887 Ohms, and updated firmware to ver 1.12, 150313."
+2015-08-15,,Used for Gill All-in-one sensor TEST at Grassy Knoll
+2015-10-28,,"Changed Rain Shield ground from Seawater to Chassis, power PIN 1 ground."
+2017-08-07,,"Did post deploy (Rec PI2-17-TH, PT-006, 0-23W) current drain test, 15.38mA average over 4 days."
+2017-09-14,,"Changed firmware to version 1.16, 161014, O2 version for PNE, PI4-17-RB cruise."
+2017-09-14,,"Unfortunately, I mixed up the serial and met ribbon cables and plugged them into the wrong boards.  Iridium Xmit now has problems, sometimes it works, sometimes says bad Iridium coms.  When it works it is slow and hangs at times.  May have to swap the Iridium modem, or serial board.  F*&$k!"
+2017-11-06,,"Upgraded to firmware version 2.01, 170530.  Tested on bench again, iridium coms and XMIT working okay now???  Will run current drain/bench test with roof-top antennas"
+2017-11-13,,Completed one week of testing.  This system working okay now.  No problems with Iridium or call into RUDICS.
+2017-11-13,,"Almost 7 days, current drain average was 15.41mA."
+2017-11-13,,"Tested internal Iridium antenna & GPS, with XMIT outside, which successfully registered and sent dummy files."

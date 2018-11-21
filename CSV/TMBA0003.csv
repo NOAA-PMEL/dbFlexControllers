@@ -1,0 +1,50 @@
+2010-09-02,,"This unit had problems, but is finally fixed.  Everything is working, but it has never been put outside on test.  Pat has used it for firmware development on his bench, but that's about it."
+2010-09-23,23:30,"Started 1st test with all sensors, SBE39TP & Nortek Aquadopp.  Installed Sim card, ran xmit and successfully registered with satellite.  Successfully tested all sensors and GPS.  So far though, have not been able to talk to the RF modem."
+2010-09-27,18:30,"Ended test, brought TFLEX0003 inside lab, RF modem not working."
+2010-09-29,21:00,"Back out on test, replaced RIG board (that Pat McLain gave me).  RF modem now working."
+2010-10-07,20:20,TEST ended.  Brought TFLEX0003 in lab to upgrade Iridium transmitter firmware.
+2020-10-08,,Randy Bott updated Iridium transmitter firmware.
+2010-12-06,22:00,"Pat updated firmware to v1.12 101206, which fixes Sparton compass problem with v 1.10 100514. (due to failure of v1.11 100813)"
+2010-12-07,,"Pat wants to revert back to the firmware version that is one version before the version that failed.  v1.11 100813 failed, the version before that is v1.11 100805.  Pat installed version 1.11100805 into system 0003."
+2010-12-08,23:08,"STARTED Test in LOG mode of v1.11, 100805 (2nd system with TFLEX0000).  XMIT, GPS, ALL sensors working.  Connected Gill Wind, SWR, Rain, Hygroclip ATRH, SSTC (SBE37TC), plus Inductive senors: SBE39T, SBE39TP, Aquadopp."
+2010-12-09,21:40,STOPPED test.  Noticed that RF modem was still in continuous mode for both systems 0000 & 0003 running v1.11 100805.  RF modem should only be in continuous mode for 1 hour after LOG mode is initiated (determined by configuration setting).
+2010-12-10,19:30,"Did mods on circuit boards to decrease snooze current drain (Snooze power reduction mods per Pat), replaced and removed resistors on the 332, MET, and Serial boards."
+2010-12-13,23:40,"STARTED Test in LOG mode, v1.11 100805, with all Deployment MET sensors, 1 SBE39T, 1 SBE39TP, & 1 Aquadopp."
+2010-01-07,17:00,"Noticed Aquadopp temperature (address 22, depth 30m in calfile) reading constant 22.17 for all data."
+2011-01-19,,"Mentioned to Dan about Nortek temp stuck at 22.17.  Turns out that all the Aquadopp data is the same, meaning the Nortek is not in LOG mode, that the TFLEX is just going out and getting the same (last) data sample.  OOPS! Didn't catch this..."
+2011-01-27,17:00,"Disconnected inductive test cable, NO inductive sensors connected. Brought sensors inside to prep for PI2-10 cruise shipment."
+2011-02-07,23:00,Disconnected Power & brought TFLEX0003 inside TAO lab.
+2011-04-20,,"RF antenna fitting (through faceplate) broke.  Took TFLEX Electronics apart, removing faceplate, so RF antenna mount hole could be tapped at the Machine Shop for new RF antenna fitting."
+2011-05-05,,RF antenna faceplate hole tapped.  Needs to be re-assembled.
+2011-09-26,,Installed new antenna with new type fitting.  Re-assembled and tested okay.
+2011-11-09,,"Updated firmware to version 1.11, 111101."
+2011-12-01,,"Updated firmware to v1.11, 111121, which fixes wind, Aquadopp, and Iridium problems."
+2011-12-02,,"Start of test for IO2-12-BJ.  All MET sensors, except LW & Baro.  All inductive sensors, except no TPs (at Seabird for CAL). Setup outside next to tube rack."
+2011-12-02,17:00,"Reset and stopped logging.  SSTC not working.  SBE37SMP setup problem.  Had to set Outputexecutedtag=N, so an HTML tag ""executed"" would not be used.  "
+2011-12-02,18:00,System restarted in Log mode.  SSTC now working.
+2011-12-16,16:45,Noticed Hygroclip 60780300 at max humidity of 100% on multiple days for multiple hours at a time.  Sensor is laying down on its side.  Will set sensor upright on by mounting in one of the tube rack mounts.
+2011-12-19,,"Hygroclip 60780300 continues to read higher than other sensors, maxing out at 100% for multiple hours."
+2011-12-19,18:45,"Reset and stopped logging.  Added 2 TPs, and swapped hygroclip to 60194537.  "
+2011-12-19,18:55,"Restarted test, put back in LOG mode."
+2012-01-03,22:03,Successfully sent Rudics dialout command XO to turn-on the RF modem
+2012-01-04,18:50,"Reset, taken out of LOG mode, IO2-12 test concluded."
+2012-04-01,,NOT deployed on IO3-12-BJ.  Air shipped back to Seattle.
+2012-07-20,,"Upgraded firmware from 1.11, 111121 to 120504."
+2012-07-20,21:30,"Re-configured cal file for PI3-12-RB, 20N-38W deployment, added Baro & LW"
+2012-07-20,23:30,Started test for PI3-12
+2012-07-26,16:25,Ended test for PI3-12
+2012-07-30,,Shipped for PI3-12-RB.
+2013-01-06,,"Deployed at 20N-38W, PT002, on PI3-12-RB."
+2013-11-20,,"Rec PT002, Failed? Xmit problems?"
+2015-04-14,,Removed JP24 Solder bridge on CPU Bd.  Changed R4 to 887 Ohms on CPU bd.  
+2015-04-14,,"Verified MET board with updated U1, U2, U40 TI chips."
+2015-04-14,,"Updated firmware to version 1.12, 150313."
+2015-04-17,,"Tried to start a current drain test in the doghouse outside, but this system could not get through on the Iridium satellite when sending the XMIT command, so I replaced the Irdium antenna cable, but still no luck.  Needs further testing."
+2015-04-20,,"Ran current drain test over the weekend.  Current drain okay at 14.9mA, BUT, no 1003 data transmissions got through Iridium.  Saw platform ID 2003 for some reason."
+2015-07-05,,"Iridium Transmit problems.  Does not get through to Iridium satellite.  Swapped wiring, antenna cable, IR antenna, NONE of this fixed the problem.  Swapped sim card on IR xmitter.  No fix."
+2017-06-09,,Updated Rain shield ground to power ground.
+2017-06-09,,"Troubleshooting Iridium Transmit problem, replaced Serial bd, CPU board, and installed NEW Iridium Modem, which finally fixed the Iridium transmit problem.  Had to change the chassis frame to mount the new Iridium modem."
+2017-06-16,,"Ran current drain test for 3 days, 13.82mA Average."
+2016-10-24,,"Back from Grassy Knoll, Gill wind Spartan vs. Ocean Server test."
+,,"Upgraded firmware from 2.01, 170530."
+2018-03-13,,"Sent as the Spare for PI4-17-RB (PNE 2018).  Sent with v1.16, but Steve needed v2.01.  Since he forgot to take the PE Micro firmware interface box, he could not change the firmware in TFLEX0003, he instead swapped in the CPU from his problem system TFLEX0009, which had bad Iriudium coms and corrosion on its Connector board."

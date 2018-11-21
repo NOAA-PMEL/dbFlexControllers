@@ -1,0 +1,65 @@
+2010-07-23,19:00,"Start of first TEST outside Bldg 3 with everything working, all met sensors connected and 1 inductive SBE39T"
+2010-08-09,21:00,Brought Inside ending test outside of Bldg 3
+2010-08-13,19:00,Put back on test outside of Bldg 3
+2010-08-19,22:20,"Restarted (taken out and put back into log mode) because Pat accidently reset it while testing his bench RF modem, which was also set to RF modem ID 0."
+2010-09-02,15:45,Brought Inside ending test outside of Bldg 3 to update firmware to 1.11 100813
+2010-09-02,21:20,"Put back on test outside of Bldg 3, in log mode, added Aquadopp CM."
+2010-09-20,21:00,"Reset, took out of LOG mode, updated Configuration to set ""GPS Interval"" from every 6 hours to 24 hours (once/day).  Also updated ""GPS set time"" to 12:15.  Then put pack into LOG mode."
+2010-09-27,21:15,Stopped testing.  Brought inside lab.  Pat using to do some further testing for the RF modem.
+2010-09-27,22:20,"TEST restarted, put back into LOG mode via the RF modem."
+2010-10-07,20:20,TEST ended.  Brought TFLEX0000 in lab to upgrade Iridium transmitter firmware.
+2010-10-08,,Randy Bott updated Iridium transmitter firmware.
+2010-10-27,20:09,Put in LOG mode for extended testing outside Bldg. 3-Full suite of SBE and Met sensors per standard TFLEX deployment . -jms
+,,"1-SBE37 TC-SMP, 5-SBE37 TC-IM, 4-SBE39 T-IM, 2-SBE39 TP-IM, 1-AQUADOPP CM--swr, rain,gill,atrh"
+2010-11-02,16:25,Restarted system with new cal file to reflect addion of new Gill Wind.  Loaded cal file via RF.  Switched out induct. Loop wire due to SBE37IM-TC drop outs.  Suspect bad ground. -jms
+,20:45,Stopped LOGGING to fix CAL file-Wrong address in CAL file for 500m TP. Changed address of 500m TP from 01-->12. -jms
+,20:53,Put in LOG -jms
+,20:58,No SBE39TC-SMP. Wrong data string from instrument.  Missing salinity.  Reformated  instrument.  Restarted LOGGING
+,,"SSTC=OK, TESTIND=OK, ATRH=ON, WIND=OK, SWR=OK, RAIN=OK  -jms"
+2010-11-15,,Last transmission received from TFLEX can  -jms
+2010-11-17,,Tried to establish comms with TLEX can via term cable.  No Joy. System not responding -jms
+2010-11-18,16:20,Tried restarting system via Iridium call at 0000Z (16:00 local).  No carrier
+2010-11-21,,System brought into lab.  Burning in an older firmware version
+2010-11-22,,Burned in V1.10 100514 PAPA VERSION (due to failure of v1.11 100813)
+2010-11-22,,System back out to test stand. All sensors plugged into face plate.  DID NOT apply power.
+2010-11-22,22:06,"Powered up system- NO RF, Tried connecting directly to term.  NO COMMS  Batteries?????  Left connected to battery.  Will try different battery Nov 23."
+2010-12-02,17:30,"Tried to establish coms with TFLEX0000, no response, brought inside for check-out. Gave to Pat to reload firmware."
+2010-12-06,22:00,"System would not respond because of Flash card.  Flash card had to be removed and reformatted with watchdog timer disabled(jumper removed).  Pat also updated firmware to v1.12 101206, which fixes Sparton compass problem with v 1.10 100514."
+2010-12-07,00:00,"START of TESTING for firmware v1.12 101206 with full set of deployment sensors.  XMIT, GPS, ALL sensors working, put in LOG mode."
+,18:00,"Stopped testing.  Brought inside lab.  Pat wants to revert back to the firmware version that is one version before the version that failed.  v1.11 100813 failed, the version before that is v1.11 100805.  Pat installed version 1.11100805 into system 0000."
+,19:20,"ReSTARTED TESTING in LOG mode, now with firmware version 1.11 100805. XMIT, GPS, ALL sensors tested and working."
+2010-12-08,23:00,"Data from RF modem putting out control characters at time in Tera Term, but not in XCTU terminal program.  Installed older version of TeraTerm, but control characters still being displayed (but not all RF modem data on screen).  Not sure if it's a TeraTerm problem or System RF modem problem."
+2010-12-09,23:50,Pat accidentally reset this System 0000 via the RF modem.  RESTARTED.
+2010-12-10,19:30,RESET and configured RF modem ID to 4 (per Pat's suggestion) because of the garbage control character data coming out of RF modem.  RESTARTED testing in LOG mode.
+,20:10,"Not picking up data on RF modem address 4.  RESET again, set back to RF ID 0."
+2010-12-13,17:20,Stopped Logging to fix RF modem.  REPLACED RF MODEM on System 0000.
+,18:35,"ReSTATARED testing in LOG mode with new RF modem, RF ID = 4."
+2011-01-05,23:00,Noticed that XMIT (Iridium) Battery Voltage data reading 0 in data.  Pat says some resistors need to be added to the CPU board to fix this. TO DO after testing.
+2011-01-27,23:55,STOPPED TEST. Brought TFLEX0000 can inside to fix xmit battery voltage. Found Bat voltage connector loose.  Re-connected and now both battery voltage data working.
+2011-01-28,20:00,STARTED wind & ATRH test at the Grassy Knoll (on top of the van)
+2011-02-01,23:40,"STOPPED test, added SW rad, RESTARTED test on Grassy Knoll."
+2011-02-02,21:10,"STOPPED test, Changed Iridium 1st call time from 00:00 to 00:10, then RESTARTED test on Grassy Knoll"
+2011-02-07,18:15,"STOPPED test, did xmit, loaded deploy calfile, connected new SW rad 33724, then RESTARTED."
+2011-02-09,18:10,"STOPPED test, did xmit, Grassy Knoll testing done.  Brought back to TAO lab for IO2-11 shipping."
+2011-02-23,,Air Shipped for IO3-11-BJ
+2011-03-20,,"Deployed at 12S-93E on IO2-11-BJ, RT001"
+2012-04-01,,"Recovered at 12S-93E on IO3-12-BJ, RT001"
+2012-05-01,,Air shipped back from Indonesia from IO3-12-BJ
+2012-08-07,,"Updated firmware to version 1.11, 120504"
+2012-08-22,,"Installed Iridium modem wire upgrade (per Pat) from pin 22 on DB25 to pin 4 on connector board, plus added 1KOhm resistor on pin 4 to pin 8 on DB25.  Plus cleaned up brass I/O connectors on tophat."
+2013-02-04,,"Updated firmware to version 1.12, 130201"
+2013-02-20,00:30,"Started test for IO3-13 without inductive sensors (due to firmware problems), plus temp RF ID = 1"
+2013-02-25,17:50,Stopped test without inductive sensors.
+2013-02-25,23:30,"Updated firmware to v1.12, 130225, fixing microcat address #09 problem."
+2013-02-26,02:05,"Started testing for IO3-13 with set of spare sensors, all calibrated."
+2013-02-26,18:00,The SSTC microcat data reading 1435-1462 for salinity in error.  Normally in error conductivity & salinity read near zero. Disconnected and brought microcat 9737 inside lab for checkout.
+2013-02-26,19:00,Reconnected SSTC microcat 9737.  Corrected setup problem.  It was outputting sound velocity instead of salinity.
+2013-03-18,17:45,"Stopped outside TEST for IO3-13, spare system."
+2015-03-20,,"Updated CPU R4 to 887 Ohms, removed solder bridge on CPU JP24, and updated firmware to ver 1.12, 150313."
+2015-08-15,,Used for Gill All-in-one sensor TEST at Grassy Knoll.
+2018-08-06,,Installed metal SS standoffs on bottom of the circuit board stack.
+2018-08-06,,"Fixed Rain Ground, shield now connected to power ground.  Installed new ground 4-pin Ground faceplate bulkhead and rewired 2-wire, (pin1 & pin2) IM ground connection."
+2018-08-06,,"Updated firmware to version 2.01, 170530."
+2018-08-06,,Updated Iridium 1st Xmit time to 00:40.
+2018-08-06,,"Installed new Orings, face and jam seal."
+2018-08-08,,"Ran current drain/functional test overnight on bench, 14.25mA average.  Everything working, Flash RAM data write good."

@@ -1,0 +1,7 @@
+2017-12-19,,Built NEW.  Installed NEW Iridium SIM Card.
+2018-01-10,,"Successfully tested all MET sensor inputs, RF modem, IM data, and GPS."
+2018-01-10,,"Tried to run bench current drain test, but it seems like the RF modem is NOT turning OFF.  Current seems about 20mA higher than other systems."
+2018-05-10,,"Did some bench testing.  Current drain seemed higher when first powered up, around 66mA, but then RF modem did turn off and current drain seemed reasonable."
+2018-05-11,,Installed SS metal circuit board standoffs on bottom stack.
+2018-05-16,,"Ran Bench current drain test for 4.5 days with version 2.01, 170530 firmware, RF modem turned off okay, 15.71mA Average."
+2018-05-16,,"Tested internal Iridium antenna by doing an XMIT outside, which successfully registered and sent dummy files."

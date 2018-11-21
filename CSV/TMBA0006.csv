@@ -1,0 +1,18 @@
+2011-09-29,,"Built NEW, bench tested okay, all sensors working.  RF modem, Iridium, and GPS tested okay. Loaded firmware v1.11, 110408."
+2011-11-09,,"Updated firmware to version 1.11, 111101."
+2011-12-02,,"Updated firmware to version 1.11, 111121"
+2012-01-26,19:40,"Started test outside Bldg 3 for IO4-12.  Spare system with 1 TC, 1 T, Nortek, no LWR, no BP.  Magnetic variation set to 0 degrees."
+2012-02-01,18:20,IO4-12 Test complete
+2012-07-18,,"Shipped for IO4-12, Feb 7, 2012, spare system, but not deployed."
+2012-12-18,,"Retasked for IO7-12, spare system."
+2013-01-10,,"IO7-12-SN spare system, not deployed.  Will be shipped back from India."
+2013-04-10,,Back from IO7-12-SN.
+2013-05-30,,"Updated firmware to version 1.12, 130306."
+2013-08-09,19:00,"Started testing outside for PI3-13-RB, PT003, 20N-38W"
+2013-08-19,18:00,"Stopped PI3-13 test to upgrade firmware to v1.12, 130816"
+2013-08-19,21:30,Re-started PI3-13 testing outside.
+2013-08-26,23:05,Disconnected Inductive all inductive sensors and SSTC microcat.
+2013-08-30,19:20,Stopped PI3-13 testing.
+2013-11-20,,"FAILED on PT003, works (calling in), but all sensors reading 1E+35.  Pat thinks its something power related."
+2015-01-06,,"Recovered on PI3-14-EN.  PT003 Buoy found with tower missing.  Faceplate trashed, with corroded bulkhead connectors.  Antenna housing dragged across deck during recovery, plus RF antenna broken."
+2017-05-15,,System re-purposed for TFLEX topsection testing. SIM card taken out and used in FLEX box for firmware testing.

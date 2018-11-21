@@ -1,0 +1,59 @@
+2010-07-13,,"Start of first TEST on buoy in and out of water inside boat basin with everything working, all Met sensors connected and 1 SBE39TP, 1 SBE37TC, and 1 Aquadopp."
+2010-07-21,20:30,Start of moored buoy test.  Buoy towed outside of boat basin and anchored in lake.
+2010-07-28,,Vaisala SBD 23 added to buoy for comparison
+2010-08-11,20:20,"Taken off buoy for repair, GPS not working."
+2010-09-02,21:30,"Back outside on test outside Bldg 3, GPS repaired, updated firmware to v1.11 100813, added Aquadopp CM."
+2010-09-20,16:00,"Noticed that this TFLEX unit, 0002, was only getting GPS position updates sporadically while set to every 6 hours, so will try to change it to once per day.  Pat says this could be because it's testing outside of Bldg 3, and the building is interfering with GPS satellite reception."
+2010-09-20,21:00,"Reset, took out of LOG mode, updated Configuration to set ""GPS Interval"" from every 6 hours to 24 hours (once/day).  Also updated ""GPS set time"" to 12:15.  Then put back into LOG mode."
+2010-09-22,18:00,"Noticed that GPS not coming in at all, no positions."
+2010-09-23,20:30,"Stopped test, disconnected battery and all sensors and brought in TFLEX 0002 to repair GPS."
+2010-10-05,17:30,"GPS Repaired, Started test out in EDD Dog House shed with NO sensors connected."
+2010-10-06,15:45,Stopped test.  Brought inside to use to test some Gill winds.
+2010-10-06,16:35,"Put back out on test in Dog house shed to test GPS, set for every 6 hours"
+2010-10-08,16:20,Stopped test.  GPS working okay.  Brought inside lab to upgrade Iridium transmitter firmware.
+2010-10-08,,Randy Bott updated Iridium transmitter firmware.
+2010-11-04,16:51,Started LOGGING. SPARE TFLEX SYSTEM. 
+,,INDUCTIVE SET TO START 19:00 GMT
+2010-11-05,,NO INDUCTIVE COMMS.
+,15:29,Taken out of LOG mode
+,15:48,Put back into LOG mode. Loaded new cal file with AQUADOPP
+,16:20,RF update. NO SSTC (SBE37TC-SMP)-->All other sensors GOOD
+,20:44,Restart system in LOG.  Rectified SBE37TC-SMP issue.  Must OUTPUT SALINITY  from instrument for TFLEX to read.
+,,"ATRH=OK, RAIN=OK, SWR=OK, TESTIND=OK, SSTC=OK"
+2010-11-15,,Last transmission received from TFLEX can  -jms (due to failure of v1.11 100813)
+2010-11-17,,Tried to establish comms with TLEX can via term cable.  No Joy. System not responding -jms
+2010-11-17,,Brought system into Pat's Lab (can+batt connected). Pat running diagnostics on it. -jms
+2010-12-06,22:00,"Pat updated firmware to v1.12 101206, which fixes Sparton compass problem with v 1.10 100514."
+2010-12-07,00:30,"START of TESTING for firmware v1.12 101206 with set of spare deployment sensors, SBE39T, SBE39TP, SBE37TC, Aquadopp.   XMIT, GPS, ALL sensors working, put in LOG mode."
+2010-12-09,21:20,Stopped TESTING so Pat can do some bench testing & current drain testing.
+2010-12-13,22:45,"ReStarted TESTING in LOG mode, v1.12 101206. (see above for sensors)"
+2011-01-26,18:00,"Disconnected inductive test cable, NO inductive sensors connected. Brought sensors inside to prep for PI2-10 cruise shipment."
+2011-01-28,17:05,STOPPED TEST. Brought Can inside to upgrade firmware to 1.11 100805.
+2011-01-28,20:00,STARTED wind & ATRH test at the Grassy Knoll (on top of the van)
+2011-02-01,23:40,"STOPPED test, added SW rad, RESTARTED test on Grassy Knoll"
+2011-02-02,21:10,"STOPPED test, Changed Iridium 1st call time from 00:00 to 00:30, then RESTARTED test on Grassy Knoll"
+2011-02-07,18:15,"STOPPED test, did xmit, loaded deploy calfile, connected new SW rad 34934, then RESTARTED."
+2011-02-09,18:10,"STOPPED test, did xmit, Grassy Knoll testing done.  Brought back to TAO lab for IO2-11 shipping."
+2011-06-08,17:00,"Updated firmware to version 1.11 110408, which changes Iridium Listen call up time to 2200 GMT. "
+2011-06-09,23:30,"Started test outside Bldg 3 for PI1-11-RB, 20N-38W, Spare system & sensors"
+2011-06-27,17:30,Stopped test for PI1-11-RB.
+2011-06-27,,Pat is doing a current drain test of this system 0002 out in the dog house outside.
+2011-06-28,,"Pat finished with current drain testing, resulting in 24hr average of 17mA."
+2011-07-07,,Shipped as Spare for PI1-11.
+2011-09-08,,"Air shipped back from PI1-11, Cape Town"
+2011-11-09,,"Updated firmware to version 1.11, 111101."
+2011-12-02,,"Updated firmware to version 1.11, 111121"
+2012-01-24,00:45,"Started test outside Bldg 3 for IO4-12, all sensors except LWR, BP, and 500 TP (sensor at Seabird for Calibration). Magnetic variation set to 0 degrees."
+2012-01-31,23:00,IO4-12 TEST completed.
+2012-07-18,,"Shipped for IO4-12, Feb 7, 2012, spare system, but not deployed."
+2012-12-18,,Retasked for IO7-12.
+2012-12-29,,"Deployed at 12N-90E on IO7-12-SN, RT002"
+2013-06-04,,"FAILED, stopped transmitting at 12N-90E, RT002."
+2013-06-06,,"The TFLEX system at 12n90e (TFLEX-1002, deployment RT-002) started to report system resets on May 29 after about 150 days of problem-free operation. The Hygroclip AT/RH data ended after the first reset, and other sensors came back online with some data loss, as has been the observed pattern in other FLEX/TFLEX systems.  Several more resets occurred on June 4.  There have been no dialin calls for about the last 48 hours (last was 20123-06-04 19:00)."
+2014-05-08,,"TFLEX0002 finally shipped back from India.  Failure of TFLEX0002 caused by Hygroclip 60194533 failure.  Somehow saltwater got into the pigtail interconnection cable, RMG-4-MP male pins, which corroded and shorted out system."
+2014-05-09,,Did a bench-top current drain test of system with no sensors connected inside lab.  Currrent drain average was 6.3mA.
+2015-04-30,,Found Serial board missing Q2 & Q5 with jumpers shorted?  So replaced Serial board.
+2015-04-30,,Changed R4 to 887Ohms and removed solder bridge on JP24 on CPU board.
+2015-04-30,,"Upgraded Firmware to version 1.12, 150313."
+2015-11-29,,"FAILED on RT002, at 12N-90E.  Hygroclip cable not sealed (pigtail to interconnection connector), so saltwater leaked in and shorted out, shorting out TFLEX electronics.  System works, but has a high current drain."
+2015-05-01,,"Tried to do a current drain inside the lab, 1st time with roof-mounted antennas, but this system has a higher than expected current drain at around 60mA.  More boards need to be replaced."

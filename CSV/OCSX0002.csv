@@ -1,0 +1,31 @@
+2008-12-02 14:54:57,"Box for bench testing.  Has power and data connectors on opposite sides.
+Wired for Paros, Vaisala
+128MB
+CPU board 40029
+serial board 1000
+met board 1000
+RIG board 1000"
+2008-12-31 15:47:19,testing in buoy in parking lot for Papa
+2009-02-23 16:50:33,"testing in lake for PA003
+1.07 2009-09-20 firmware"
+2009-04-06 12:00:00,Lake testing concluded - battery died; HLB buoy mods
+2009-04-08 00:00:00,to EDD to add 2nd 64pin connector
+2009-05-01 00:00:00,"Back from EDD, 2nd 64 pin added; 1.07 2009-04-20 firmware"
+2009-05-06 19:00:00,Out to grassy knoll van for PA003 testing
+2009-05-22 12:00:00,"New I/O cals.  AT:  A3  -3.998587E-01  A4  2.430431E-04
+RH:  A3  2.803436E-04  A4  2.688063E-04"
+2009-05-30 14:37:48,Shipping to PA2-09-TU as PA003 primary.  v1.07 090420 firmware
+2010-06-22 16:10:25,Recovered from PA003 and returned to lab on PA1-10-TU - DEM
+2010-11-15 15:16:57,GPS and Iridium installed internally.  JAK
+2010-11-16 11:33:01,SIM Card 89881 69514 00062 6007
+2011-01-05 11:59:36,New CPU board installed 12/23/2010.   Board #40206. JAK
+2011-01-13 12:38:09,"Circuit boards damaged by 40V.  Replaced with boards from box 7.  CPU 40212 (fully modified), MET no S/N, SER no S/N, RIG 2000."
+2011-01-13 12:40:48,"Iridium antenna damaged by 12V because proper mods weren't made to Serial board.  Replaced with new.  IMEI 300224010731080.  DRHS0022D, L5, 32835, 7072RA.  Still has same SIM card as noted 11/16/2010.  JAK"
+2011-12-22 15:07:33,Added Iridium handshaking and hygroclip wiring.  JAK
+2012-03-30 09:43:14,Firmware upgraded to version 1.11 111121  JAK
+2012-06-03 13:11:15,Deployed at PA006.  JAK
+2013-06-18 20:40:00,Rec. PA006.  Batteries low.  JAK
+2014-03-06 13:51:41,I/O cal completed - JAK
+2015-07-01 14:29:49,Deployed at PA009 6/15/16.  JAK
+2016-08-18 08:36:39,"Recovered on 07/05/16, PA 009. Three system resets throughout deployment. DK"
+2017-06-30 14:20:54,Deployed PA011A 6/14/17 - PB

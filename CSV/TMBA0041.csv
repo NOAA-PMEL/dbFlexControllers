@@ -1,0 +1,8 @@
+2016-09-15,,Completed build up of NEW system sn 0041.  Tested all sensor inputs successfully.  RF modem tested okay.  
+2016-09-22,,Installed new Iridium SIM card. Successfully tested GPS and XMIT functions with roof-mounted antennas connected inside lab.
+2016-10-03,,"Ran Current drain test for 4.5 days, 13.94mA Average.  Dumped FLASH RAM data file, which looked okay."
+,,Need to run GPS and XMIT test with system antennas (not roof antennas).
+2016-12-20,,"Matt Casari borrowed this system to test the new Ocean Server compass board, but applied power incorrectly to the system.  Now its current drain is about 20mA high."
+2017-02-23,,"Replaced CPU board.  Current drain reduced, but still a bit high about 4mA high.  All sensors work, so running current drain test."
+2017-02-27,,"Benchtop Current drain test is a little high, but acceptable at 22.25mA after 4 days testing.  Transmitted data looked okay."
+2017-03-21,,"Used this system to check transmit times for Dan Dougherty, and found that SSTC data not working in LOG mode data, reading 1E+35, but SSTC data works okay in the TEST mode SSTC command in the Terminal mode.  Needs to be fixed."

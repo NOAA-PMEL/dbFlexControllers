@@ -1,0 +1,9 @@
+2017-10-20,,Built NEW.  Installed NEW Iridium SIM Card.
+2017-10-26,,"Successfully tested all MET sensor inputs, RF modem, IM data, and GPS."
+2017-10-31,,"Ran Bench current drain test for 4 days with version 2.01, 170530 firmware, RF modem turned off, 13.62mA Average."
+2017-10-31,,"Tested internal Iridium antenna by doing an XMIT outside, which successfully registered and sent dummy files."
+2017-11-29,,"Tried to use outside on test for IO1-18, but did multiple XMIT commands, and system registered, but everytime got an error message ""no connect message received"".  Not sure if this is a TFLEX0053 system problem, or an Iridium problem."
+2018-09-15,,"Back from IO2-18-RB, NOT USED, not deployed at 12S-67E due to bad weather on site."
+2018-11-01,,Installed metal SS standoffs on bottom of circuit board stack.
+2018-11-05,,"Ran Bench current drain test for 4 days with version 2.01, 170530 firmware, RF modem turned off, 12.99mA Average."
+2018-11-05,,Successfully tested GPS and XMIT commands outside on the internal antennas.

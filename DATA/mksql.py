@@ -142,13 +142,15 @@ def makeData(csvfiles):
         for row in csvreader:
           fcp.append({
             'sn':row[1],
-            'status': 2 if re.match(r"Do\sNot\sDeploy",row[2]) else 1
+            'status': 2 if re.match(r"Do\sNot\sDeploy",row[2]) else 1,
+            'loc': 6 if re.match(r"Do Not Deploy",row[2]) else 1 if re.match(r"Lab",row[3]) else 3 if re.match(r"Recovered",row[2]) else 7 if re.match(r"Deployed",row[2]) else 8,
+            'note': row[-2] if re.match(r"-1",row[-1]) else row[-1]
           })
   
   return con, sim, fcp
   ## def makeData
 
-def makeSQL(ls):
+def makeSQL(ls,pfx):
   """Function for parsing the given list into SQL insert statements"""
   sql = []
   opt = []
@@ -203,12 +205,18 @@ def makeSQL(ls):
   elif set(('sn','status')).issubset(ls[0]) and 'serial' not in ls[0]:
     # Faceplates
     print('Writing Faceplates SQL...')
+    print(pfx)
     for d in ls:
+      d['pfx']=pfx
       ins = uw(r"""
         INSERT INTO `Instrument` VALUES (NULL);
         SET @fcp_inst_id = LAST_INSERT_ID();
         INSERT INTO `FlexFaceplatesInfo` (`inst_id`,`sn`,`status_id`)
         VALUES (@fcp_inst_id,'{sn}',{status});
+        INSERT INTO `InstrumentHist` (`inst_id`,`dt`,`txt`)
+        VALUES (@fcp_inst_id,NOW(),"{note}");
+        INSERT INTO `{pfx}InstrumentLocation`.`History` (`inst_id`,`dt`,`label_id`)
+        VALUES (@fcp_inst_id,NOW(),{loc});
       """.format(**d))
       sql.append(ins)
   else:
@@ -346,11 +354,11 @@ def main(args):
   ## Parse csvs for data
   con,sim,fcp = makeData([taoinv,ocsinv,taosim,ocssim,ocsfcp])
   ## Controllers SQL
-  conSQL = makeSQL(con)
+  conSQL = makeSQL(con,pfx)
   ## SIMs SQL
-  simSQL = makeSQL(sim)
+  simSQL = makeSQL(sim,pfx)
   ## Faceplates SQL
-  fcpSQL = makeSQL(fcp)
+  fcpSQL = makeSQL(fcp,pfx)
   with open(sqlfile, 'w') as fob:
     print('Writing {} file...'.format(sqlfile))
     sql = ['/* DATA/mksql.py */']

@@ -7,7 +7,7 @@ from tao.util import unwrap as uw
 from pprint import pformat
 from datetime import datetime, time
 from openpyxl import load_workbook
-from MySQLdb.cursors import DictCursor
+from pymysql.cursors import DictCursor
 from pprint import pprint
 
 class FileError(Exception):
@@ -79,7 +79,7 @@ def ocs_row_clean(row):
       continue
     elif type(c.value) is long:
       csv_row.append(str(c.value))
-    elif re.search('\n',c.value) is not None:
+    elif re.search("\n",str(c.value),re.DOTALL) is not None:
       csv_row.append(c.value.replace("\n"," "))
     else:
       csv_row.append(c.value)
@@ -108,10 +108,10 @@ def make_history_csv(wb):
     row_iter = sht.rows
     N = 1
     ## skip first 3 rows
-    for n in range(3): r = row_iter.next()
+    for n in range(3): r = next(row_iter)
     N += n + 1
     ##
-    with open('{}.csv'.format('TMBA'+sht_name), 'wb') as fob:
+    with open('{}.csv'.format('TMBA'+sht_name), 'w') as fob:
       csvobj = csv.writer(fob)
       for r in row_iter:
         csv_row = []
@@ -139,10 +139,10 @@ def make_iridium_csv(wb):
   row_iter = sht.rows
   N = 1
   ## skip first 3 rows
-  for n in range(3): r = row_iter.next()
+  for n in range(3): r = next(row_iter)
   N += n
   ##
-  with open('TMBAIridium.csv', 'wb') as fob:
+  with open('TMBAIridium.csv', 'w') as fob:
     csvobj = csv.writer(fob)
     for r in row_iter:
       N += 1
@@ -194,10 +194,10 @@ def make_status_csv(wb):
   row_iter = sht.rows
   N = 1
   ## skip first 3 rows
-  for n in range(3): row_iter.next()
+  for n in range(3): next(row_iter)
   N += n + 1
   ##
-  with open('TMBAInventory.csv', 'wb') as fob:
+  with open('TMBAInventory.csv', 'w') as fob:
     csvobj = csv.writer(fob)
     for r in row_iter:
       if r[0].value is None:
@@ -243,10 +243,10 @@ def make_ocs_iridium(wb):
   row_iter = sht.rows
   N = 1
   ## skip first 1 rows
-  for n in range(1): row_iter.next()
+  for n in range(1): next(row_iter)
   N += n + 1
   ##
-  with open('{}Iridium.csv'.format(sht_name), 'wb') as fob:
+  with open('{}Iridium.csv'.format(sht_name), 'w') as fob:
     csvobj = csv.writer(fob)
     for r in row_iter:
       csv_row = [(((c.value is not None) and str(c.value).strip()) or str()) for c in r]
@@ -307,10 +307,10 @@ def make_stratos_csv(wb):
   row_iter = sht.rows
   N = 1
   ## skip first 1 rows
-  for n in range(4): row_iter.next()
+  for n in range(4): next(row_iter)
   N += n
   ##
-  with open('{}.csv'.format('Stratos'), 'wb') as fob:
+  with open('{}.csv'.format('Stratos'), 'w') as fob:
     csvobj = csv.writer(fob)
     for r in row_iter:
       N += 1

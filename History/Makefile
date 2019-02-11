@@ -13,4 +13,4 @@ $(SQL) : $(FL:%=%.sql)
 	( echo 'USE `$(PREFIX)FlexSystems`;'; cat $^ ) > $@
 
 $(FL:%=%.sql) : %.sql : mksql.py $(CSV)/%.csv
-	python2 $^ $@ $(PREFIX)
+	python $^ $@ $(PREFIX)

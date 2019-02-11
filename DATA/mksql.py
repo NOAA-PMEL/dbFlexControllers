@@ -173,6 +173,8 @@ def makeSQL(ls,pfx):
         UPDATE `FlexConfig` 
         SET `sim_id` = @sim_inst_id WHERE `inst_id` = @con_inst_id;
       """.format(**d))
+      ins += r"INSERT INTO {}InstrumentLocation.History (`inst_id`,`dt`,`label_id`,`txt`)".format(pfx)
+      ins += r"VALUES (@sim_inst_id,{dt},1,'Activated and installed in {serial}');".format(**d)
       ## add to the sql list
       sql.append(ins)
   elif set(('call', 'card')).issubset(ls[0]) and 'icc' not in ls[0]:

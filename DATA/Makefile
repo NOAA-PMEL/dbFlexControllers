@@ -10,4 +10,4 @@ clean :
 sql : $(SQL)
 
 $(SQL) : mksql.py $(DATA:%=$(CSV)/%)
-	python2 $^ '$(PREFIX)' $@
+	python $^ '$(PREFIX)' $@

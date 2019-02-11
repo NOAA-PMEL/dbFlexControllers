@@ -8,4 +8,4 @@ clean :
 sql : $(SQL)
 
 $(SQL) : mksql.py
-	python2 $^ '$(PREFIX)' $@
+	python $^ '$(PREFIX)' $@

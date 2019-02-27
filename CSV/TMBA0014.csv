@@ -19,3 +19,6 @@
 2017-10-16,,Changed O-rings.
 2017-11-29,,"Put out on test for IO1-18-BJ8.  This system seems to be missing Iridium transmit blocks of data outside on test more than other systems.  It did this during its last deployment as well, on RT007, but it did not miss one Iridium transmit buffer while it tested on the bench, suggesting that it may have a bad Iridium transmit antenna cable or antenna.  Should replace both???"
 2017-12-12,,"Replaced Iridium antenna cable.  XMIT tested okay, 2nd time, 1st time could not register.  We'll see how well it calls into RUDICS during its cruise testing for PNE 2018."
+2018-11-14,,Installed metal SS standoffs on bottom of circuit board stack.
+2018-11-26,,"Ran current drain bench test for 5.5 days, 14.40mA average, RAM flash data dump looked good."
+,,Successfully tested XMIT and GPS commands outside on internal antennas.

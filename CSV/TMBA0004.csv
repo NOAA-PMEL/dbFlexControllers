@@ -30,4 +30,7 @@
 2017-09-07,,"Replaced GND faceplate connector (adding pin1&2, before only pin2).  Installed NEW IMM and NEW Serial board in an attempt to fix the read command characters (>/sa & >/sam) intermittantly corrupting one velocity aquadopp data string (in a 6 hour data buffer)."
 2017-09-11,,"Ran a new current drain test and Aquadopp data test (with new IMM & Serial bd).  Ran for 4 Days, 14.03mA average."
 2017-09-11,,"Upgraded to v2.01, 170530 Firmware"
-2018-10-30,,"Back from Indonesia, IO1-18, not deployed."
+2018-10-30,,"Back from Indonesia, IO1-18, not deployed, but tested on deck.  System left in LOG mode and shipped back in LOG mode."
+2018-11-27,,Installed metal SS standoffs on bottom of circuit board stack (Higley).
+2018-12-03,,"Ran benchtop current drain test for 3.5 days, 13.43mA Average.  Flash RAM data dump looked good."
+2018-12-03,,Successfully tested XMIT and GPS commands outside on internal antennas.

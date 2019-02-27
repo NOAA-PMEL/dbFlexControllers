@@ -17,3 +17,11 @@
 2016-08-15,,"Swapped in NEW CPU board (OLD CPU BOARD draws high current, around 27mA).  This fixed coms, but current drain still high, reading 38mA, instead of 8-12mA, terminal mode, quiesent current.  Needs further testing."
 2017-01-10,,"Ryan wells fixed this system while I was on cruise travel for IO5-16(Jan 2017).  His comment tag says that he swapped the CPU and MET boards.  He also did a current drain test, resulting in 15.8mA average."
 2017-02-15,,Changed the Rain shield ground wiring from seawater ground to Pin 1 power ground.  Also cut off the power jumper between the wind and compass connectors on the connector board (since its not needed).
+2018-10-25,,"Back from sea, Rec IO2-18-RB.  Deployed for one year on RT-016, 8S-67E.  This system had 3 resets during its deployment?"
+2018-12-03,,Installed metal SS standoffs on bottom of circuit board stack.
+2018-12-03,,"Upgraded to v2.01, 170530 firmware."
+2018-12-03,,Changed Iridium 1st transmit time to 00:45. (note: can't use 00:35)
+2018-12-10,,"Ran benchtop current drain test for 5 days, 14.7mA average.  Flash RAM data dump okay."
+2018-12-10,,Successfully tested XMIT and GPS commands outside on internal antennas.
+2018-12-10,,Found the black dummy bulkhead on the faceplate loose.  Replaced it with a new one.
+2018-12-10,,"Installed NEW O-rings, both Jam seal and face seal."

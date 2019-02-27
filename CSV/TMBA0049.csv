@@ -4,3 +4,6 @@
 2017-08-28,,"Ran Bench current drain test for 3 days with version 2.01, 170530 firmware, RF modem turned off, 13.64mA Average."
 2017-08-28,,"Tested internal Iridium antenna by doing an XMIT outside, which successfully registered and sent dummy files."
 2018-10-30,,"Back from Indonesia, IO1-18, NOT deployed, needs checkout/upgrades."
+2018-11-14,,Installed metal SS standoffs on bottom of circuit board stack.
+2018-11-18,,"Ran Bench current drain test for 4 days with version 2.01, 170530 firmware, RF modem turned off, 13.49mA Average."
+2018-11-18,,Successfully tested XMIT and GPS commands outside on internal antennas.

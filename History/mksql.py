@@ -24,6 +24,11 @@ def refmt(sql):
   return re.sub(r"[ \n]+", ' ', sql)
   ## def refmt
 
+def dbEsc(cmt):
+  cmt = cmt.strip()
+  return re.sub(r"\'","\\'",cmt)
+  ## def dbEsc
+
 def main(args):
   csvfile, sqlfile, pfx = args
   sn = csvfile[-8:-4]
@@ -42,7 +47,7 @@ def main(args):
         except ValueError as ve:
           return '[{}: {}] {}'.format(csvfile, N, ve)
         dst = '{} {}'.format(time.strftime('%Y-%m-%d', d), time.strftime('%H:%M:%S', t))
-        data.append([dst, row[2]])
+        data.append([dst, dbEsc(row[2])])
         if N == 0:
           loc.extend([dst,1,'Built new'])
         last_date = time.strftime('%Y-%m-%d', d)
@@ -62,27 +67,19 @@ def main(args):
         except ValueError as ve:
           return '[{}: {}] {}'.format(csvfile, N, ve)
         dst = '{}'.format(time.strftime('%Y-%m-%d %H:%M:%S', d))
-        data.append([dst, row[1]])
+        data.append([dst, dbEsc(row[1])])
         last_date = time.strftime('%Y-%m-%d', d)
         if N == flen - 1:
           loc.extend([dst, 1 if re.match(r"Recovered",row[1]) else 7 if re.match(r"Deployed",row[1]) else 6,row[1]])
   # Write the sql for this serial number
   dbc = tao.db.MySQL().user()
-  sql = [
-    '/* History/mksql.py < {}*/'.format(csvfile),
-    r"SELECT `inst_id` INTO @con_inst_id FROM `ControllersInfo` WHERE `sn` = '{}' AND `type_id` = {};".format(sn,tp),
-    r"INSERT INTO `InstrumentHist` (`inst_id`, `dt`, `txt`)",
-    r"VALUES"
-  ]
+  sql = ["/* History/mksql.py < {}*/".format(csvfile),r"SELECT `inst_id` INTO @con_inst_id FROM `ControllersInfo` WHERE `sn` = '{}' AND `type_id` = {}; INSERT INTO `InstrumentHist` (`inst_id`, `dt`, `txt`) VALUES".format(sn,tp)]
   for N,li in enumerate(data):
     if N == len(data)-1:
-      sql.append(r"  (@con_inst_id,{},{});".format(*dbc.escape(li)))
+      sql[1] += (r" (@con_inst_id,'{}','{}');".format(*li))
     else:
-      sql.append(r"  (@con_inst_id,{},{}),".format(*dbc.escape(li)))
-  sql.extend([
-    r"INSERT INTO {}InstrumentLocation.History (`inst_id`,`dt`,`label_id`,`txt`)".format(pfx),
-    r"VALUES (@con_inst_id,{},{},{});".format(*dbc.escape(loc))
-  ])
+      sql[1] += r" (@con_inst_id,'{}','{}'),".format(*li)
+  sql.append(r"INSERT INTO {}InstrumentLocation.History (`inst_id`,`dt`,`label_id`,`txt`) VALUES (@con_inst_id,'{}',{},'{}');".format(pfx,*loc))
   sql.append(str())
   dbc.close()
   ##

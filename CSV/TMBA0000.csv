@@ -63,3 +63,4 @@
 2018-08-06,,Updated Iridium 1st Xmit time to 00:40.
 2018-08-06,,"Installed new Orings, face and jam seal."
 2018-08-08,,"Ran current drain/functional test overnight on bench, 14.25mA average.  Everything working, Flash RAM data write good."
+2018-12-10,,"Patrick broke this system during TELOS testing.  Don't know what the problem is, needs testing."

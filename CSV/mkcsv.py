@@ -13,6 +13,7 @@ from pprint import pprint
 class FileError(Exception):
   def __init__(self, fname):
     self.value = "[{}: ] couldn't match columns from".format(fname)
+
   def __str__(self):
     return self.value
   ## class FileError
@@ -20,6 +21,7 @@ class FileError(Exception):
 class DateTimeError(Exception):
   def __init__(self, s, n, i):
     self.value = '[{}: {}] unknown value in column {}'.format(s, n, i)
+
   def __str__(self):
     return self.value
   ## class DateTimeError
@@ -27,19 +29,20 @@ class DateTimeError(Exception):
 class CharacterError(Exception):
   def __init__(self, s, n, e, r):
     self.value = pformat(dict(msg='[{}: {}] {}'.format(s, n, e), row=r))
+
   def __str__(self):
     return self.value
   ## class CharacterError
 
 def date_column(s, N, c):
   val = None
-  if c is None: 
+  if c is None:
     val = str()
-  elif type(c) is datetime: 
+  elif type(c) is datetime:
     val = c.strftime('%Y-%m-%d')
   elif re.match(r"\?+", str(c).strip()):
     val = str()
-  else: 
+  else:
     raise DateTimeError(s, N, 0)
   return val
   ## def date_column
@@ -77,8 +80,8 @@ def ocs_row_clean(row):
   for c in row:
     if c.value is None:
       continue
-    elif type(c.value) is long:
-      csv_row.append(str(c.value))
+    # elif type(c.value) is long:
+    #   csv_row.append(str(c.value))
     elif re.search("\n",str(c.value),re.DOTALL) is not None:
       csv_row.append(c.value.replace("\n"," "))
     else:
@@ -130,7 +133,6 @@ def make_history_csv(wb):
         except UnicodeEncodeError as uee:
           raise CharacterError(sht_name, N, uee, csv_row)
         N += 1
-      ## end with file
   ## def make_history_csv
 
 def make_iridium_csv(wb):
@@ -262,7 +264,7 @@ def make_ocs_hist(sns):
     hist = fetch_ocs_history(sn)
     box = r'0\d{3}'
     sn = 'X'+sn if re.match(box,sn) is not None else 'T'+sn
-    with open('OCS{}.csv'.format(sn),'wb') as fobj:
+    with open('OCS{}.csv'.format(sn),'w') as fobj:
       header = ['dt','comment']
       csvobj = csv.DictWriter(fobj,fieldnames=header,quotechar='"',quoting=csv.QUOTE_MINIMAL)
       csvobj.writerows(hist)
@@ -298,7 +300,7 @@ def make_ocs_inv(wb):
           csvobj.writerow(ent)
         except UnicodeEncodeError as uee:
           raise CharacterError(active,i,uee,ent)
-    
+
   ## def make_ocs_inv
 
 def make_stratos_csv(wb):
@@ -355,6 +357,7 @@ def main(args):
     except FileError as err:
       return str(err)
   ## def main
+
 
 if __name__ == '__main__':
   sys.exit(main(sys.argv[1:]))

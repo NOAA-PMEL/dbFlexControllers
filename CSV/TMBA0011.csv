@@ -25,3 +25,6 @@
 ,,"THIS SYSTEM TFLEX0011 should NOT be used, since it has intermittent Iridium problems."
 2018-09-11,,"Replaced Iridium modem (recycled from TFLEX0002). Replaced Serial board with new board.  Replaced GPS & Iridium antennas and antenna cables.  Tested XMIT multiple times inside on rooftop antenna and outside with its internal antennas. XMIT worked great!  Registering and successfully transmitting dummy files quickly.  It did this multiple times, so I think this system is fixed and ready to go. It will run on the bench again for a couple of days for a current drain check again just to be sure."
 2018-09-17,,"Ran another current drain test on the bench for 6 days, after Iridium repairs above, current drain 16.66mA average, NO RESETS."
+2018-11-28,,"Found black plastic dummy faceplate bulkhead broken off, replaced with new dummy bulkhead."
+2018-11-28,,Cleaned faceplate and brass bulkheads
+2018-11-28,,Successfully tested XMIT and GPS commands outside on internal antennas.

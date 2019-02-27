@@ -1,3 +1,18 @@
+X0002,2008-12-02 14:54:57
+X0004,2008-01-13 12:00:00
+X0005,2009-01-23 14:05:27
+X0006,2008-12-15 15:36:55
+X0007,2008-06-24 12:00:00
+X0008,2008-12-02 15:04:08
+X0009,2008-06-24 12:00:00
+X0010,2010-03-08 19:09:44
+X0011,2007-06-01 12:00:00
+2001,2014-06-18 00:00:00
+2002,2014-06-28 00:00:00
+2003,2014-06-15 00:00:00
+2004,2014-06-15 00:00:00
+2005,2014-06-15 00:00:00
+2006,2014-06-15 00:00:00
 FLEX Box (Druck),0006,Recovered,Lab,KEO 2016,KEO 2018 Spare,-1,IMM comms had 2E35 error at ARC.  Reinstalled original CPU board and could not replicate problem.  Tested 4/2011. Added Iridium handshaking 1/10/12. Replaced internal IMM due to intermittent 2E35s 10/17/12.
 FLEX Box (Druck),0008,Deployed,KEO,KEO 2017,-1,Deployed at KE009 11/14/11. Recovered 7/5/12. Added Iridium handshaking 10/2012.
 FLEX Box (Druck),0009,Needs Cal,Lab,KEO 2017 Spare,KEO 2018,-1,Returned from ARC 6/9/11. Added Iridium handhsaking 1/10/12. Deployed at KE010 7/4/12.

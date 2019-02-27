@@ -1,3 +1,4 @@
 2016-06-29,,Completed build up of NEW system sn 0031.  Tested all sensor inputs successfully.  RF modem tested okay.  Installed new Iridium SIM card. Successfully tested GPS and XMIT functions with roof-mounted antennas connected inside lab.
 2016-07-03,,"Ran Current drain test for 3 days, 14.46mA Average.  Dumped FLASH RAM data file, which looked okay."
 ,,Need to run GPS and XMIT test with system antennas (not roof antennas).
+2018-07-07,,"Deployed on RT-013, 12N-90E, mooring adrift with TFLEX0031, eventually landing in Myanmar, so it is presumed that TFLEX0031 is LOST."

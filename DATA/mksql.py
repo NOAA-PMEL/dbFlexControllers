@@ -10,7 +10,7 @@ def refmt(sql):
   return re.sub(r"[ \n]+", ' ', sql)
 
 def makeData(csvfiles):
-  """This function requires all csv inventory files and returns lists of dicts 
+  """This function requires all csv inventory files and returns lists of dicts
   of FLEX controllers and Iridium SIMs for the GTMBA/OCS SQL Inventory tables."""
   hdr = []
   con = []
@@ -68,7 +68,7 @@ def makeData(csvfiles):
         elif re.match(r"\d{4}",raw):
           print('Processing GTMBA Controller Inventory File...')
           for row in csvreader:
-            if row[1]: # Skipping anything w/out a platform ID
+            if row[1]:  # Skipping anything w/out a platform ID
               ## Capture the date
               if row[10]: dt, tech = [n.strip() for n in row[10].split(',')]
               try:
@@ -146,7 +146,7 @@ def makeData(csvfiles):
             'loc': 6 if re.match(r"Do Not Deploy",row[2]) else 1 if re.match(r"Lab",row[3]) else 3 if re.match(r"Recovered",row[2]) else 7 if re.match(r"Deployed",row[2]) else 8,
             'note': row[-2] if re.match(r"-1",row[-1]) else row[-1]
           })
-  
+
   return con, sim, fcp
   ## def makeData
 
@@ -163,18 +163,18 @@ def makeSQL(ls,pfx):
       ins = uw(r"""
         INSERT INTO `Instrument` VALUES (NULL);
         SET @sim_inst_id = LAST_INSERT_ID();
-        SELECT `inst_id` INTO @con_inst_id 
-        FROM `ControllersInfo` 
+        SELECT `inst_id` INTO @con_inst_id
+        FROM `ControllersInfo`
         WHERE `sn` = '{serial}' AND `type_id` = {type};
         INSERT INTO `SIMInfo` (`inst_id`,`iccid`,`data_num`,`voice_num`,`dt`)
         VALUES (@sim_inst_id,'{icc}','{data}','{voice}','{dt}');
         INSERT INTO `SIMConfig` (`inst_id`,`dt`,`proj_id`,`active`,`system_id`)
         VALUES (@sim_inst_id,'{dt}','{proj}',1,@con_inst_id);
-        UPDATE `FlexConfig` 
+        UPDATE `FlexConfig`
         SET `sim_id` = @sim_inst_id WHERE `inst_id` = @con_inst_id;
       """.format(**d))
-      ins += r"INSERT INTO {}InstrumentLocation.History (`inst_id`,`dt`,`label_id`,`txt`)".format(pfx)
-      ins += r"VALUES (@sim_inst_id,{dt},1,'Activated and installed in {serial}');".format(**d)
+      ins += r"INSERT INTO {}InstrumentLocation.History (`inst_id`,`dt`,`label_id`,`txt`) ".format(pfx)
+      ins += r"VALUES (@sim_inst_id,'{dt}',1,'Activated and installed in {serial}'); ".format(**d)
       ## add to the sql list
       sql.append(ins)
   elif set(('call', 'card')).issubset(ls[0]) and 'icc' not in ls[0]:
@@ -209,7 +209,7 @@ def makeSQL(ls,pfx):
     print('Writing Faceplates SQL...')
     print(pfx)
     for d in ls:
-      d['pfx']=pfx
+      d['pfx'] = pfx
       ins = uw(r"""
         INSERT INTO `Instrument` VALUES (NULL);
         SET @fcp_inst_id = LAST_INSERT_ID();
@@ -223,7 +223,7 @@ def makeSQL(ls,pfx):
       sql.append(ins)
   else:
     raise Exception("makeSQL couldn't process the {} list!".format(ls))
-  
+
   if opt:
     return opt+sql
   else:
@@ -234,18 +234,18 @@ def makeTables(pfx,drop=True):
   """Generates the SQL strings for building the Controllers and support tables"""
   db = [r"USE `{}FlexSystems`;".format(pfx)]
   if drop:
-    dropThese = [uw(r"""
-      DROP TABLE IF EXISTS `ControllersInfo`;
-      DROP TABLE IF EXISTS `ControllersOptions`;
-      DROP TABLE IF EXISTS `FlexConfig`;
-      DROP TABLE IF EXISTS `FlexFaceplatesInfo`;
-      DROP TABLE IF EXISTS `FlexFixes`;
-      DROP TABLE IF EXISTS `SIMInfo`;
-      DROP TABLE IF EXISTS `SIMConfig`;
-      """)]
+    dropThese = [
+      r"DROP TABLE IF EXISTS `ControllersInfo`;",
+      r"DROP TABLE IF EXISTS `ControllersOptions`;",
+      r"DROP TABLE IF EXISTS `FlexConfig`;",
+      r"DROP TABLE IF EXISTS `FlexFaceplatesInfo`;",
+      r"DROP TABLE IF EXISTS `FlexFixes`;",
+      r"DROP TABLE IF EXISTS `SIMInfo`;",
+      r"DROP TABLE IF EXISTS `SIMConfig`;"
+    ]
   else:
     dropThese = []
-  
+
   tables = [
     uw(r"""
     CREATE TABLE `ControllersInfo` (
@@ -340,11 +340,11 @@ def makeTables(pfx,drop=True):
       (2,'active','Inactive'),
     """]
   for i,r in enumerate(callTimes):
-    if i == len(callTimes) -1:
-      options.append(uw(r"(NULL,'{0}','{1}');".format(*r)))
+    if i == len(callTimes) - 1:
+      options[0] += r"(NULL,'{0}','{1}');".format(*r)
     else:
-      options.append(uw(r"(NULL,'{0}','{1}'),".format(*r)))
-  
+      options[0] += r"(NULL,'{0}','{1}'),".format(*r)
+
   ## Compile all lists
   sql = db+dropThese+tables+options
   return sql
@@ -371,6 +371,7 @@ def main(args):
     ## Write to sqlfile
     fob.write('\n'.join([refmt(s) for s in sql]))
   ## def main
+
 
 if __name__ == '__main__':
   sys.exit(main(sys.argv[1:]))

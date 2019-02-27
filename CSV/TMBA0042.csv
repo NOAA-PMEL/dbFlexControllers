@@ -1,2 +1,10 @@
 2017-03-24,,"Built NEW. Successfully tested all MET sensor inputs, RF modem, IM data, and GPS.  Waiting for SIM card to test Iridium and to perform current drain test."
 2017-04-03,,"Ran bench current drain test for 3 days, 16.74mA average."
+2018-12-10,,"Back from big India shipment.  Not deployed on IO4-17.  Kunze says RF modem came on after 3 days without input from local (probably not), so it needs testing to check to see if RF modem turns on, communicates, and turns off properly & run a current drain test.  This system has never been deployed."
+2018-12-11,,Installed metal SS standoffs on bottom of circuit board stack.
+2018-12-11,,"Updated firmware to v2.01, 170530."
+2018-12-11,,"Bench tested system communicating through the RF modem.  1s time it was put in LOG mode, the RF modem coms seemed intermittent.  I even saw the system hang (while communicating through the RF modem) and reset on its own."
+2018-12-11,,"RF modem coms worked okay, but then I took the systemn out of LOG mode and back into LOG mode, then RF modem coms were intermittant again."
+2018-12-11,,"REPLACED RF MODEM, installed NEW RF modem."
+2018-12-17,,"Ran bench current drain test for 5 days, 13.0mA average."
+2018-12-17,,"Did more RF modem bench testing.  The RF modem coms seem to work sometimes, but then hangs at other times.  RF modem coms NOT reliable, needs more testing repairs???, maybe replace RIG board?"

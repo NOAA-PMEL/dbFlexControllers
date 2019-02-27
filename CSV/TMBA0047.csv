@@ -4,3 +4,8 @@
 2017-10-24,,"Upgraded firmware to version 2.01, 170530"
 2018-06-12,,"Sent to IO1-18 Indonesia.  Tested okay here, but while testing on deck at sea, GPS only getting fixes sporadically, 2 of 6, 1 of 6 per day.  Need to check antenna connection to RIG board.  Maybe move Iridium 1st transmit time later???"
 2018-10-30,,"Back from Indonesia, IO1-18.  NEEDS TESTING, REPAIR for GPS, GPS module on RIG board? Or NEW GPS antenna???"
+2018-11-26,,Installed metal SS standoffs on bottom of circuit board stack.
+2018-11-26,,Installed NEW GPS antenna/cable.  Also installed NEW Iridium antenna cable. Put NEW rubber bushings in Hubbell fittings.
+2018-11-26,,"Started Benchtop current drain test,  GPS appears to be working okay with rooftop external GPS antenna, so GPS module on RIG board seems to be okay.  Since this system now has a new GPS internal antenna, hopefully the problem is fixed.  Needs GPS testing outside."
+2008-11-29,,"Ran Bench current drain test for 3 days, 13.00mA Average.  GPS module worked every 6 hours for 3 days and did not miss any GPS positions."
+2008-11-29,,Successfully tested XMIT and GPS commands outside with NEW internal GPS antenna and internal Iridium antenna.

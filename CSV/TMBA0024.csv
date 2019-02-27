@@ -2,3 +2,11 @@
 2016-06-22,,"Setup Config by mistake, that did  6min Iridium calls and 6min GPS fixes.  Data did not work and system reset 4 times.  After config properly setup, then ran Current drain test for 4 days, but Mulit-meter showed error, so had to restart test.  Finally got 2 day current drain average of 14.22mA.  Dumped Flash RAM data,which looked okay."
 ,,Need to run GPS and XMIT test with system antennas (not roof antennas).
 2017-11-27,,"Rec IO4-17-SN, SteveK.  Failed, No coms, Steve brought back Flash RAM card, he could not dump data.  He also said that he found corrosion on chips on CPU board."
+2018-12-10,,"Back from big India shipment.  Rec RT010, 4S-81E.  FAILED.  Has corrosion inside.  Found the dummy bulkhead on faceplate broken, sheared off and not sealing."
+2019-02-21,,Installed new dummy (black plastic) bulkhead on the faceplate. 
+2019-02-21,,"Found corrosion on CPU booard U4 & U5,  plus firmware load header pins, JP7.  Also, FOUND CORROSION, SALT RESIDUE ON AND AROUND RF MODEM ANTENNA INSIDE HOLE AND SALT RESIDUE ON RF MODEM ANTENNA CONNECTOR AND ON CABLE.  THIS PROBABLY IS THE SOURCE OF THE SALTWATER INSTRUSION.  The RF modem pipe thread hole LEAKED.  Need to reseat with pipe thead sealant and them put RTV in hole."
+2019-02-21,,"INSTALLED NEW CPU BOARD with 2.01, 170530, and new 2 GB FLASH RAM card."
+2019-02-21,,"Found R33 on serial board broken with only one side of surface mount resistor left on board.  Scavenged an R33 1R00, 1 ohm resistor off an old/bad board and installed on 0024 serial board.  Inspected serial board, but did not find any corrosion on it."
+2019-02-21,,"FOUND SOME CORROSION ON CONNECTOR BOARD, SO INSTALLED NEW CONNECTOR BOARD."
+2019-02-21,,"Installed new GPS antenna/cable and new iridium antenna cable, new Hubbell rubber plugs and a new Iridium/GPS antenna housing O-ring."
+2019-02-22,,Installed NEW face and jam seal O-rings.

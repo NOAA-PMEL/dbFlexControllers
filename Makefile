@@ -1,5 +1,5 @@
 ## order of these does matter
-SUBS := DB DATA History
+SUBS := DATA History
 PFX := test_DAW_
 
 .PHONY : sql db clean CSV $(SUBS)
@@ -17,9 +17,9 @@ build.sql : sql
 sql : TARGET = sql
 sql : CSV $(SUBS)
 
-$(SUBS) : 
+$(SUBS) :
 	$(MAKE) -C $@ PREFIX=$(PFX) $(TARGET)
 
-CSV : 
+CSV :
 	[ "$(TARGET)" = "clean" ] || for f in *.xlsx; do mv "$$f" $$(echo "$$f" | tr ' ' '_'); done
 	$(MAKE) -C $@ $(TARGET)

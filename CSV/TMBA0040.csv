@@ -1,4 +1,6 @@
 2016-09-15,,Completed build up of NEW system sn 0040.  Tested all sensor inputs successfully.  RF modem tested okay.  
 2016-09-22,,Installed new Iridium SIM card. Successfully tested GPS and XMIT functions with roof-mounted antennas connected inside lab.
 2016-09-28,,"Ran Current drain test for 4.5 days, 13.98mA Average.  Dumped FLASH RAM data file, which looked okay."
-,,Need to run GPS and XMIT test with system antennas (not roof antennas).
+2016-09-28,,Need to run GPS and XMIT test with system antennas (not roof antennas).
+2018-09-15,,"Back from IO2-18-RB.  Rec RT015, 4S67E.  On the shelf, waiting for post deploy testing/upgrades.  Gill WIND data failed during deployment, went to 1E+35CH.  TFLEX wind channel needs testing, BAD?  Gill wind sn16100041 calibrated okay, wind and compass cals?"
+2019-02-25,,"From TFLEX DATA ""System Status"":  ""All anemometer (Gill Windsonic #16100041) data become 1E+35. Compass data OK"""

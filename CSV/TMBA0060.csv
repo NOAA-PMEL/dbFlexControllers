@@ -5,6 +5,6 @@
 2018-08-07,,"Rain Bench current drain test again for 1 day with Gill wind sensor with NEW Ocean Server 4000T compass, had lower average, 12.94mA."
 2018-08-07,,"Tested internal GPS & Iridium antenna by doing an GPS & XMIT outside, which successfully registered and sent dummy files, plus GPS got position, and Time & Date update."
 2018-12-06,,"System died when trying to use this new system for PI2-19-RB, by trying to change firmware to v1.16 Oxygen firmware.  System will not erase, will not communicate, draws high current 105mA.  F*&$*"
-2019-02-20,,Installed NEW CPU board.
+2019-02-20,,"Installed NEW CPU board with firmware v2.01, 170530."
 2019-02-22,,"Ran Bench current drain test for 2 days with version 2.01, 170530 firmware, RF modem turned off, 13.04mA Average."
 2019-02-22,,Successfully tested GPS and XMIT commands outside with internal antennas.

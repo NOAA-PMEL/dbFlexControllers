@@ -1,6 +1,6 @@
 ## order of these does matter
 SUBS := DATA History
-PFX := test_DAW_
+PFX := 
 
 .PHONY : sql db clean CSV $(SUBS)
 

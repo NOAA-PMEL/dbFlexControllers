@@ -10,3 +10,7 @@
 2019-02-21,,"FOUND SOME CORROSION ON CONNECTOR BOARD, SO INSTALLED NEW CONNECTOR BOARD."
 2019-02-21,,"Installed new GPS antenna/cable and new iridium antenna cable, new Hubbell rubber plugs and a new Iridium/GPS antenna housing O-ring."
 2019-02-22,,Installed NEW face and jam seal O-rings.
+2019-02-25,,"Ran Current drain BENCH test for 3 days, 13.26mA Average.  Dumped FLASH RAM data file, which looked okay."
+2019-02-25,,Successfully tested GPS and XMIT commands outside on internal antennas.
+,,WAITING TO INSTALL NEW potted RF modem antenna from TIM.  
+,,DON'T FORGET TO SEAL THE INSIDE RF ANTENNA HOLE WITH RTV.  SHOULD NOW DO FOR ALL SYSTEMS.
